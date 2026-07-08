@@ -1,26 +1,49 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactDistance = 3f;
 
+    [Header("UI")]
+    public GameObject interactPanel;
+    public TMP_Text interactText;
+
+    private Interactable currentInteractable;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        CheckInteractable();
+
+        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
         {
-            Ray ray = Camera.main.ScreenPointToRay(
-                new Vector3(Screen.width / 2, Screen.height / 2));
+            currentInteractable.Interact();
+        }
+    }
 
-            if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
+    void CheckInteractable()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(
+            new Vector3(Screen.width / 2, Screen.height / 2));
+
+        if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
+        {
+            Interactable interactable =
+                hit.collider.GetComponent<Interactable>();
+
+            if (interactable != null)
             {
-                Interactable interactable =
-                    hit.collider.GetComponent<Interactable>();
+                currentInteractable = interactable;
 
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                }
+                interactPanel.SetActive(true);
+                interactText.text =
+                $"Press <color=#FFD700>E</color> to {interactable.interactionName}";
+
+                return;
             }
         }
+
+        currentInteractable = null;
+        interactPanel.SetActive(false);
     }
 }
