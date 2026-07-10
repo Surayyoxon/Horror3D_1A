@@ -1,13 +1,8 @@
 using UnityEngine;
-using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactDistance = 3f;
-
-    [Header("UI")]
-    public GameObject interactPanel;
-    public TMP_Text interactText;
 
     private Interactable currentInteractable;
 
@@ -35,15 +30,13 @@ public class PlayerInteraction : MonoBehaviour
             {
                 currentInteractable = interactable;
 
-                interactPanel.SetActive(true);
-                interactText.text =
-                $"Press <color=#FFD700>E</color> to {interactable.interactionName}";
+                ObjectiveUIManager.Instance.ShowInteraction(interactable.interactionName);
 
                 return;
             }
         }
 
         currentInteractable = null;
-        interactPanel.SetActive(false);
+        ObjectiveUIManager.Instance.HideInteraction();
     }
 }
