@@ -18,14 +18,14 @@ public class ObjectiveUIManager : MonoBehaviour
     public TMP_Text generatorText;
     public TMP_Text reminderText;
 
-    [Header("Typing")]
+    [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
 
     [Header("Audio")]
     public AudioSource typingAudio;
     public AudioClip typingClip;
 
-    Coroutine typingRoutine;
+    private Coroutine typingRoutine;
 
     private void Awake()
     {
@@ -37,13 +37,14 @@ public class ObjectiveUIManager : MonoBehaviour
 
     private void Start()
     {
+        // O'yin boshida hamma panellarni yopamiz
         exitTriggerPanel.SetActive(false);
         interactionPanel.SetActive(false);
         generatorPanel.SetActive(false);
         reminderPanel.SetActive(false);
     }
 
-    #region Exit Panel
+    #region Exit & Main Objective Panel
 
     public void ShowExitObjective(string message)
     {
@@ -58,18 +59,28 @@ public class ObjectiveUIManager : MonoBehaviour
     public void HideExitObjective()
     {
         exitTriggerPanel.SetActive(false);
+
+        // Player triggerdan chiqsa yozishni ham, audioni ham darhol to'xtatamiz
+        if (typingRoutine != null)
+        {
+            StopCoroutine(typingRoutine);
+            typingRoutine = null;
+        }
+
+        if (typingAudio != null && typingAudio.isPlaying)
+        {
+            typingAudio.Stop();
+        }
     }
 
     #endregion
 
-    #region Interaction
+    #region Interaction (E tugmasi)
 
     public void ShowInteraction(string action)
     {
         interactionPanel.SetActive(true);
-
-        interactionText.text =
-            $"Press <color=yellow><b>E</b></color> to {action}";
+        interactionText.text = $"Press <color=yellow><b>E</b></color> to {action}";
     }
 
     public void HideInteraction()
@@ -79,28 +90,17 @@ public class ObjectiveUIManager : MonoBehaviour
 
     #endregion
 
-    #region Generator
+    #region Generator Info
 
     public void ShowGeneratorInfo(int currentFuse, int requiredFuse)
     {
         generatorPanel.SetActive(true);
-
-        generatorText.text =
-$@"GENERATOR OFFLINE
-
-The generator requires {requiredFuse} Fuses.
-
-Fuse : {currentFuse}/{requiredFuse}";
+        UpdateFuseUI(currentFuse, requiredFuse);
     }
 
     public void UpdateFuseUI(int currentFuse, int requiredFuse)
     {
-        generatorText.text =
-$@"GENERATOR OFFLINE
-
-The generator requires {requiredFuse} Fuses.
-
-Fuse : {currentFuse}/{requiredFuse}";
+        generatorText.text = $"<color=red>GENERATOR OFFLINE</color>\n\nThe generator requires {requiredFuse} Fuses.\n\nFuses Found: <color=yellow>{currentFuse}/{requiredFuse}</color>";
     }
 
     public void HideGeneratorInfo()
@@ -110,12 +110,12 @@ Fuse : {currentFuse}/{requiredFuse}";
 
     #endregion
 
-    #region Reminder
+    #region Dynamic Reminder (Ekranning burchagidagi doimiy eslatma)
 
+    // AYNAN SHU ERGA JOYLASHTIRILDI!
     public void SetReminder(string reminder)
     {
         reminderPanel.SetActive(true);
-
         reminderText.text = reminder;
     }
 
@@ -126,29 +126,35 @@ Fuse : {currentFuse}/{requiredFuse}";
 
     #endregion
 
+    #region Typing Effect Coroutine (Butun audio uchun)
+
     IEnumerator TypeMessage(TMP_Text textUI, string message)
     {
         textUI.text = "";
 
-        int soundCounter = 0;
+        // Matn yozilishi boshlanganda audioni bir marta chalish
+        if (typingAudio != null && typingClip != null)
+        {
+            typingAudio.clip = typingClip;
+            typingAudio.loop = false;
+            typingAudio.volume = 0.5f;
+            typingAudio.Play();
+        }
 
         foreach (char c in message)
         {
             textUI.text += c;
-
-            soundCounter++;
-
-            if (typingAudio != null &&
-                typingClip != null &&
-                soundCounter % 4 == 0 &&
-                c != ' ' &&
-                c != '\n')
-            {
-                typingAudio.pitch = Random.Range(0.95f, 1.05f);
-                typingAudio.PlayOneShot(typingClip, 0.2f);
-            }
-
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        // Matn yakunlangach audioni to'xtatish
+        if (typingAudio != null && typingAudio.isPlaying)
+        {
+            typingAudio.Stop();
+        }
+
+        typingRoutine = null;
     }
+
+    #endregion
 }
