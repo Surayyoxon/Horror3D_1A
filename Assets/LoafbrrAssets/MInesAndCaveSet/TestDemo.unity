@@ -1570,6 +1570,7 @@ Transform:
   - {fileID: 2073604461}
   - {fileID: 538010223}
   - {fileID: 1420290830}
+  - {fileID: 274836304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &140085558
@@ -2176,28 +2177,14 @@ GameObject:
   - component: {fileID: 177510443}
   - component: {fileID: 177510442}
   - component: {fileID: 177510441}
-  - component: {fileID: 177510440}
   - component: {fileID: 177510445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse2
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &177510440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177510439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Pick Up Fuse
 --- !u!65 &177510441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2213,7 +2200,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3492,9 +3479,9 @@ GameObject:
   - component: {fileID: 274836304}
   - component: {fileID: 274836303}
   - component: {fileID: 274836302}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EmergencyExitDoor
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3527,7 +3514,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3541,12 +3528,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274836301}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.132, y: 2.24, z: 2.4000015}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.72800446, y: 13.736, z: 44.909}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &285188160
 PrefabInstance:
@@ -4072,7 +4059,7 @@ MonoBehaviour:
   interactionDistance: 3
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
 --- !u!114 &330585549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6853,9 +6840,8 @@ GameObject:
   - component: {fileID: 538010222}
   - component: {fileID: 538010221}
   - component: {fileID: 538010220}
-  - component: {fileID: 538010224}
   - component: {fileID: 538010225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Keycard
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -6948,19 +6934,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &538010224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538010219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Take Keycard
 --- !u!114 &538010225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7430,28 +7403,14 @@ GameObject:
   - component: {fileID: 580338595}
   - component: {fileID: 580338594}
   - component: {fileID: 580338593}
-  - component: {fileID: 580338592}
   - component: {fileID: 580338597}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse3
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &580338592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580338591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Pick Up Fuse
 --- !u!65 &580338593
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7467,7 +7426,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8352,7 +8311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &608693785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11548,7 +11507,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13887,9 +13846,8 @@ GameObject:
   - component: {fileID: 1032389347}
   - component: {fileID: 1032389346}
   - component: {fileID: 1032389345}
-  - component: {fileID: 1032389349}
   - component: {fileID: 1032389350}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Generator
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -13982,19 +13940,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1032389349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032389344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Start Generator
 --- !u!114 &1032389350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14007,7 +13952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a11dd1a41af3f04fbc549e1c2fadc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionName: Interact
+  interactionName: Start Generator
 --- !u!1001 &1032650916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14539,8 +14484,7 @@ GameObject:
   - component: {fileID: 1099043431}
   - component: {fileID: 1099043430}
   - component: {fileID: 1099043434}
-  - component: {fileID: 1099043435}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fuse1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -14562,7 +14506,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14634,19 +14578,6 @@ Transform:
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1099043434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099043429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Pick Up Fuse
---- !u!114 &1099043435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16369,8 +16300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -467}
-  m_SizeDelta: {x: 888.4252, y: 72.3515}
+  m_AnchoredPosition: {x: -2.0995, y: -2.559}
+  m_SizeDelta: {x: 823.8078, y: 395.4383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214926581
 MonoBehaviour:
@@ -16395,7 +16326,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16458,7 +16389,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1214926582
@@ -18992,9 +18923,9 @@ GameObject:
   - component: {fileID: 1420290830}
   - component: {fileID: 1420290829}
   - component: {fileID: 1420290831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ExitTrigger
-  m_TagString: ExitTrigger
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25801,9 +25732,8 @@ GameObject:
   - component: {fileID: 1825125417}
   - component: {fileID: 1825125416}
   - component: {fileID: 1825125415}
-  - component: {fileID: 1825125419}
   - component: {fileID: 1825125420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel_1
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -25896,19 +25826,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1825125419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825125414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Activate Panel
 --- !u!114 &1825125420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28908,9 +28825,8 @@ GameObject:
   - component: {fileID: 2073604460}
   - component: {fileID: 2073604459}
   - component: {fileID: 2073604458}
-  - component: {fileID: 2073604462}
   - component: {fileID: 2073604463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel_2
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -29003,19 +28919,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2073604462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073604457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41968bcb9197e764691132ff2d2e7a4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionName: Activate Panel
 --- !u!114 &2073604463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29194,7 +29097,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2088767604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29212,8 +29115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 5, y: -1}
+  m_SizeDelta: {x: -1028.1812, y: -619.1934}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088767605
 MonoBehaviour:
@@ -29228,7 +29131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -30109,4 +30012,3 @@ SceneRoots:
   - {fileID: 130570653}
   - {fileID: 833255691}
   - {fileID: 26650888}
-  - {fileID: 274836304}

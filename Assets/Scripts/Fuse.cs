@@ -10,7 +10,7 @@ public class Fuse : Interactable
     public override void Interact()
     {
         GameManager.Instance.FindFuse();
-        ObjectiveUIManager.Instance.HideInteraction(); // UI yopiladi
-        Destroy(gameObject); // Obyekt yo'qoladi
+        ObjectiveUIManager.Instance.HideInteraction();
+        Destroy(gameObject);
     }
 }

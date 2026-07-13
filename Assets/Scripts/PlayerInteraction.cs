@@ -2,20 +2,17 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public float interactionDistance = 3f; // Qanchalik yaqin kelsa ishlaydi
-    public LayerMask interactableLayer;    // Obyektlarni qidirish uchun layer
-
+    public float interactionDistance = 3f;
+    public LayerMask interactableLayer;
     private Interactable currentInteractable;
 
     void Update()
     {
-        // O'yinchi ko'zidan (kamerasidan) to'g'riga nur (Raycast) yuboramiz
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
         {
-            // Nur tekkan obyektda Interactable skripti bormi?
             Interactable interactable = hit.collider.GetComponent<Interactable>();
 
             if (interactable != null)
@@ -23,25 +20,24 @@ public class PlayerInteraction : MonoBehaviour
                 if (currentInteractable != interactable)
                 {
                     currentInteractable = interactable;
-                    // Ekranga o'sha obyektning nomini chiqaramiz (Masalan: Press E to Pick up Fuse)
                     ObjectiveUIManager.Instance.ShowInteraction(currentInteractable.interactionName);
                 }
 
-                // Agar o'yinchi E tugmasini bossa
+                // MANA SHU YERGA O'ZGARTIRISH KIRITILDI:
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     currentInteractable.Interact();
+                    currentInteractable = null; // Fuse kabi Destroy bo'ladigan obyektlar uchun tozalash
                 }
             }
         }
         else
         {
-            // Agar hech narsaga qaramayotgan bo'lsa UI'ni yopamiz
             if (currentInteractable != null)
             {
                 currentInteractable = null;
                 ObjectiveUIManager.Instance.HideInteraction();
-                ObjectiveUIManager.Instance.HideGeneratorInfo(); // Generator matni ochilgan bo'lsa yopish uchun
+                ObjectiveUIManager.Instance.HideGeneratorInfo();
             }
         }
     }
