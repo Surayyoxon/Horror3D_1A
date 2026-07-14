@@ -15218,21 +15218,21 @@ MonoBehaviour:
   - {fileID: 1409314628}
   - {fileID: 1720155180}
   numberSprites:
-  - {fileID: 1259169976, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 2017097974, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 795255475, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -2040325748, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -522808432, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 1837373520, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 1501371174, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 2099485304, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -231784951, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -429021439, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 1517830213, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -950034939, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: 237508207, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -1148944876, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
-  - {fileID: -89250633, guid: 0bd235c23a1178e4dbacd68188ecc7e5, type: 3}
+  - {fileID: 335458643, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -1223145103, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -53158480, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: 1276835129, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -1726002649, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -1166213694, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -974114493, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -129328062, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -467956389, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: 1425206888, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: 1259316564, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -893955596, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: 1781169493, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: 1508218670, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
+  - {fileID: -1531789693, guid: ae5619bf8113e72458ebd9adb34b85da, type: 3}
   emptySprite: {fileID: 0}
 --- !u!1001 &949184632
 PrefabInstance:
