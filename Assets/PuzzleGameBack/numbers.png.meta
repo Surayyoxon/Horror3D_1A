@@ -123,28 +123,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_0"
+      name: numbers_0
       rect:
         serializedVersion: 2
-        x: 128
-        y: 277
-        width: 87
-        height: 82
+        x: 126
+        y: 275
+        width: 90
+        height: 85
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98ac549af9ed68c459094a1f8c6817a1
-      internalID: 2048283715
+      spriteID: 7ac7a3c54236b704192058842ee691cc
+      internalID: 1259169976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_1"
+      name: numbers_1
       rect:
         serializedVersion: 2
         x: 238
@@ -152,20 +152,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8f6cfa6d7afbc4892ffb1a511daba2
-      internalID: 823550992
+      spriteID: 5304ef827b25ebb489565eda8af11c3b
+      internalID: 2017097974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_2"
+      name: numbers_2
       rect:
         serializedVersion: 2
         x: 344
@@ -173,20 +173,20 @@ TextureImporter:
         width: 86
         height: 83
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 399015eb9065ad84abf20be2bdebebeb
-      internalID: 994009207
+      spriteID: c26b5028fc31ca14b9b909d3f694efdc
+      internalID: 795255475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_3"
+      name: numbers_3
       rect:
         serializedVersion: 2
         x: 454
@@ -194,20 +194,20 @@ TextureImporter:
         width: 86
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a02e34d3a9935e54ea8b2bcbdad78c6b
-      internalID: -486781901
+      spriteID: 6cd4e4691748b9049b82fa75e4f2d461
+      internalID: -2040325748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_4"
+      name: numbers_4
       rect:
         serializedVersion: 2
         x: 131
@@ -215,20 +215,20 @@ TextureImporter:
         width: 84
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08444d67fece549468a3ccc1830bec3e
-      internalID: -1361944615
+      spriteID: 355f5d4f78b79bc4d99171d9913590d3
+      internalID: -522808432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_5"
+      name: numbers_5
       rect:
         serializedVersion: 2
         x: 238
@@ -236,20 +236,20 @@ TextureImporter:
         width: 84
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 609319a603007d4419620db3b4580123
-      internalID: 1000863552
+      spriteID: af335c24c2fc83a4e89a12038bde0c22
+      internalID: 1837373520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_6"
+      name: numbers_6
       rect:
         serializedVersion: 2
         x: 346
@@ -257,20 +257,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ab9489b4acfbec4dae1e6192724cc17
-      internalID: 281870672
+      spriteID: c465a357c226a8f41a869451bfe323b1
+      internalID: 1501371174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_7"
+      name: numbers_7
       rect:
         serializedVersion: 2
         x: 455
@@ -278,20 +278,20 @@ TextureImporter:
         width: 86
         height: 80
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f429a9e3966de4abe4817c5a8fe7be
-      internalID: -2111127743
+      spriteID: 8953de37bfa577d4c88908017943baf6
+      internalID: 2099485304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_8"
+      name: numbers_8
       rect:
         serializedVersion: 2
         x: 130
@@ -299,20 +299,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 383345c76f24bfb4597908fbda2bb245
-      internalID: -1930618043
+      spriteID: 3ecea795d5a30fa469aebb1dd338f237
+      internalID: -231784951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_9"
+      name: numbers_9
       rect:
         serializedVersion: 2
         x: 238
@@ -320,20 +320,20 @@ TextureImporter:
         width: 84
         height: 83
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17a95b9205bd716468917dff58c0f1d0
-      internalID: -1465214138
+      spriteID: a4beaf2ff3d7c90468688c7e2d404182
+      internalID: -429021439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_10"
+      name: numbers_10
       rect:
         serializedVersion: 2
         x: 346
@@ -341,20 +341,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839e0b097a841f744b54cefc8d06be18
-      internalID: -1644444477
+      spriteID: 9b90d6347018afb46b7f47c991faf836
+      internalID: 1517830213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_11"
+      name: numbers_11
       rect:
         serializedVersion: 2
         x: 456
@@ -362,20 +362,20 @@ TextureImporter:
         width: 85
         height: 83
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3a304c52313f9a46b07574d7e212ad5
-      internalID: -1544341224
+      spriteID: 28be3a734891eff468747ad5502fa809
+      internalID: -950034939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_12"
+      name: numbers_12
       rect:
         serializedVersion: 2
         x: 130
@@ -383,20 +383,20 @@ TextureImporter:
         width: 84
         height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 687ace0d05315764b9b5eb19deeac02a
-      internalID: -1213100396
+      spriteID: cbdbfdf23bcbad049b9f2868de150c57
+      internalID: 237508207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_13"
+      name: numbers_13
       rect:
         serializedVersion: 2
         x: 238
@@ -404,20 +404,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b68cf257ea8c5664b84f98d23b9e0d45
-      internalID: -1355980739
+      spriteID: 8cd95f71243289b41afe75fd37f6febe
+      internalID: -1148944876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_14"
+      name: numbers_14
       rect:
         serializedVersion: 2
         x: 346
@@ -425,20 +425,20 @@ TextureImporter:
         width: 84
         height: 82
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bf5542995bb56f448da70dbc3b2e6cf
-      internalID: -1605296300
+      spriteID: 0461d43469c3d9d498c89a44c5a6f5c4
+      internalID: -89250633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_15"
+      name: numbers_15
       rect:
         serializedVersion: 2
         x: 457
@@ -446,14 +446,14 @@ TextureImporter:
         width: 85
         height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf7e1445daf54194ea1962e556afcf89
-      internalID: 1445149073
+      spriteID: ca9096fa5f8c5094ea5df2e459cd0193
+      internalID: -1093723702
       vertices: []
       indices: 
       edges: []
@@ -469,22 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_0": 2048283715
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_1": 823550992
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_10": -1644444477
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_11": -1544341224
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_12": -1213100396
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_13": -1355980739
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_14": -1605296300
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_15": 1445149073
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_2": 994009207
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_3": -486781901
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_4": -1361944615
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_5": 1000863552
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_6": 281870672
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_7": -2111127743
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_8": -1930618043
-      "ChatGPT_Image_13_\u0438\u044E\u043B._2026_\u0433.__12_43_16-removebg-preview_9": -1465214138
+      numbers_0: 1259169976
+      numbers_1: 2017097974
+      numbers_10: 1517830213
+      numbers_11: -950034939
+      numbers_12: 237508207
+      numbers_13: -1148944876
+      numbers_14: -89250633
+      numbers_15: -1093723702
+      numbers_2: 795255475
+      numbers_3: -2040325748
+      numbers_4: -522808432
+      numbers_5: 1837373520
+      numbers_6: 1501371174
+      numbers_7: 2099485304
+      numbers_8: -231784951
+      numbers_9: -429021439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
