@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PanelTwo : Interactable
 {
+    public GameObject puzzleCanvas; // SudokuCanvas (fon + grid) shu yerga biriktiriladi
+
     private void Start()
     {
         interactionName = "Activate Panel 02";
@@ -9,14 +11,13 @@ public class PanelTwo : Interactable
 
     public override void Interact()
     {
-        // Faqat Panel 1 yoqqanidan keyin ishlaydi
         if (GameManager.Instance.currentStep == GameManager.GameStep.Panel01Active)
         {
-            // Bu yerda ikkinchi puzzle o'yinini ochasiz
-            // Puzzle yutilgandan keyin:
-            GameManager.Instance.OnPanel02Activated();
+            puzzleCanvas.SetActive(true);
             ObjectiveUIManager.Instance.HideInteraction();
-            this.enabled = false;
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
