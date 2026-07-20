@@ -5,7 +5,7 @@ using TMPro;
 public class InputCodeManager : MonoBehaviour
 {
     [Header("Kod")]
-    public string correctCode = "123456";
+    public string correctCode = "";
     private string currentInput = "";
     public int maxDigits = 6;
 
@@ -15,6 +15,7 @@ public class InputCodeManager : MonoBehaviour
     public Button[] numberButtons;
     public Button clearButton;
     public Button enterButton;
+    public Button cancelButton; // YANGI: Paneldan chiqish (X yoki Back) tugmasi
 
     [Header("Bog'liq tizimlar")]
     public ScreamerController screamer;
@@ -41,28 +42,39 @@ public class InputCodeManager : MonoBehaviour
             enterButton.onClick.RemoveAllListeners();
             enterButton.onClick.AddListener(SubmitCode);
         }
+
+        // YANGI: Bekor qilish tugmasiga listener ulaymiz
+        if (cancelButton != null)
+        {
+            cancelButton.onClick.RemoveAllListeners();
+            cancelButton.onClick.AddListener(ClosePanel);
+        }
+    }
+
+    private void Update()
+    {
+        // YANGI: Panel ochiq bo'lganida ESC tugmasi bosilsa panelni yopamiz
+        if (codePanel != null && codePanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ClosePanel();
+            }
+        }
+    }
+
+    public void SetNewCode(string newCode)
+    {
+        correctCode = newCode;
+        if (ObjectiveUIManager.Instance != null)
+        {
+            ObjectiveUIManager.Instance.SetPosterCode(correctCode);
+        }
     }
 
     private void OnEnable()
     {
         ClearInput();
-    }
-
-    // YANGI FUNKSIYA: Kodni o'rnatadi va Posterdagi raqamni ham o'zi yangilaydi!
-    public void SetNewCode(string newCode)
-    {
-        correctCode = newCode;
-        Debug.Log("<color=cyan>[InputCodeManager]</color> Yangi kod qabul qilindi: " + correctCode);
-
-        // Poster textini ham shu yerning o'zida yangilab qo'yamiz
-        if (ObjectiveUIManager.Instance != null)
-        {
-            ObjectiveUIManager.Instance.SetPosterCode(correctCode);
-        }
-        else
-        {
-            Debug.LogWarning("[InputCodeManager] ObjectiveUIManager topilmadi!");
-        }
     }
 
     public void AddDigit(int digit)
@@ -100,7 +112,6 @@ public class InputCodeManager : MonoBehaviour
 
     void OnCorrectCode()
     {
-        Debug.Log("<color=green>[InputCodeManager]</color> KOD TO'G'RI!");
         ClosePanel();
 
         if (GameManager.Instance != null)
@@ -111,7 +122,6 @@ public class InputCodeManager : MonoBehaviour
 
     void OnWrongCode()
     {
-        Debug.LogWarning("<color=red>[InputCodeManager]</color> XATO KOD!");
         wrongAttempts++;
         ClearInput();
 
@@ -121,12 +131,16 @@ public class InputCodeManager : MonoBehaviour
         }
     }
 
+    // Panelni yopish va o'yinchiga harakatlanish imkonini qaytarish
     public void ClosePanel()
     {
         if (codePanel != null)
         {
             codePanel.SetActive(false);
         }
+
+        ClearInput(); // Har ehtimolga qarshi yopilganda kiritilgan chala raqamlar tozalanadi
+
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
