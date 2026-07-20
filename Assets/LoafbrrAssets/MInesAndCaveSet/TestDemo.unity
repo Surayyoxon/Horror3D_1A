@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 26650885}
   - component: {fileID: 26650890}
   - component: {fileID: 26650889}
+  - component: {fileID: 26650891}
   m_Layer: 5
   m_Name: ObjectiveCanvas
   m_TagString: Untagged
@@ -984,6 +985,19 @@ MonoBehaviour:
   typingSpeed: 0.03
   typingAudio: {fileID: 26650889}
   typingClip: {fileID: 8300000, guid: b53c71c62438fb54aba021f8e3d9e428, type: 3}
+--- !u!114 &26650891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26650884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8578d3681b3b549b3f73b0a1ac153d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputCodeManager: {fileID: 1767523239}
 --- !u!1001 &28652354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36779,7 +36793,6 @@ GameObject:
   - component: {fileID: 1767523239}
   - component: {fileID: 1767523241}
   - component: {fileID: 1767523240}
-  - component: {fileID: 1767523242}
   m_Layer: 5
   m_Name: InputCodeManager
   m_TagString: Untagged
@@ -37015,19 +37028,6 @@ MonoBehaviour:
   onCriticalFailure:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1767523242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767523234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d8578d3681b3b549b3f73b0a1ac153d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputCodeManager: {fileID: 1767523239}
 --- !u!1 &1767529542
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,27 +1,35 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+
 public class ObjectiveUIManager : MonoBehaviour
 {
     public static ObjectiveUIManager Instance;
+
     [Header("Panels")]
     public GameObject exitTriggerPanel;
     public GameObject interactionPanel;
     public GameObject generatorPanel;
     public GameObject reminderPanel;
     public GameObject posterPanel;
+
     [Header("Texts")]
     public TMP_Text exitTriggerText;
     public TMP_Text interactionText;
     public TMP_Text generatorText;
     public TMP_Text reminderText;
-    public TMP_Text posterCodeText;  
+    public TMP_Text posterCodeText;
+
     [Header("Typing Settings")]
     public float typingSpeed = 0.03f;
+
     [Header("Audio")]
     public AudioSource typingAudio;
     public AudioClip typingClip;
     private Coroutine typingRoutine;
+
+    // Yaratilgan kodni doimiy saqlash uchun o'zgaruvchi
+    private string currentSavedCode = "";
 
     private void Awake()
     {
@@ -30,26 +38,29 @@ public class ObjectiveUIManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
     private void Start()
     {
         // O'yin boshida hamma panellarni yopamiz
-        exitTriggerPanel.SetActive(false);
-        interactionPanel.SetActive(false);
-        generatorPanel.SetActive(false);
-        reminderPanel.SetActive(false);
-        posterPanel.SetActive(false);
+        if (exitTriggerPanel != null) exitTriggerPanel.SetActive(false);
+        if (interactionPanel != null) interactionPanel.SetActive(false);
+        if (generatorPanel != null) generatorPanel.SetActive(false);
+        if (reminderPanel != null) reminderPanel.SetActive(false);
+        if (posterPanel != null) posterPanel.SetActive(false);
     }
+
     #region Exit & Main Objective Panel
     public void ShowExitObjective(string message)
     {
-        exitTriggerPanel.SetActive(true);
+        if (exitTriggerPanel != null) exitTriggerPanel.SetActive(true);
         if (typingRoutine != null)
             StopCoroutine(typingRoutine);
         typingRoutine = StartCoroutine(TypeMessage(exitTriggerText, message));
     }
+
     public void HideExitObjective()
     {
-        exitTriggerPanel.SetActive(false);
+        if (exitTriggerPanel != null) exitTriggerPanel.SetActive(false);
         if (typingRoutine != null)
         {
             StopCoroutine(typingRoutine);
@@ -61,61 +72,103 @@ public class ObjectiveUIManager : MonoBehaviour
         }
     }
     #endregion
+
     #region Interaction (E tugmasi)
     public void ShowInteraction(string action)
     {
-        interactionPanel.SetActive(true);
-        interactionText.text = $"Press <color=yellow><b>E</b></color> to {action}";
+        if (interactionPanel != null)
+        {
+            interactionPanel.SetActive(true);
+            if (interactionText != null)
+                interactionText.text = $"Press <color=yellow><b>E</b></color> to {action}";
+        }
     }
+
     public void HideInteraction()
     {
-        interactionPanel.SetActive(false);
+        if (interactionPanel != null) interactionPanel.SetActive(false);
     }
     #endregion
+
     #region Generator Info
     public void ShowGeneratorInfo(int currentFuse, int requiredFuse)
     {
-        generatorPanel.SetActive(true);
+        if (generatorPanel != null) generatorPanel.SetActive(true);
         UpdateFuseUI(currentFuse, requiredFuse);
     }
+
     public void UpdateFuseUI(int currentFuse, int requiredFuse)
     {
-        generatorText.text = $"<color=red>GENERATOR OFFLINE</color>\n\nThe generator requires {requiredFuse} Fuses.\n\nFuses Found: <color=yellow>{currentFuse}/{requiredFuse}</color>";
+        if (generatorText != null)
+            generatorText.text = $"<color=red>GENERATOR OFFLINE</color>\n\nThe generator requires {requiredFuse} Fuses.\n\nFuses Found: <color=yellow>{currentFuse}/{requiredFuse}</color>";
     }
+
     public void HideGeneratorInfo()
     {
-        generatorPanel.SetActive(false);
+        if (generatorPanel != null) generatorPanel.SetActive(false);
     }
     #endregion
-    #region Dynamic Reminder (Ekranning burchagidagi doimiy eslatma)
+
+    #region Dynamic Reminder
     public void SetReminder(string reminder)
     {
-        reminderPanel.SetActive(true);
-        reminderText.text = reminder;
+        if (reminderPanel != null) reminderPanel.SetActive(true);
+        if (reminderText != null) reminderText.text = reminder;
     }
+
     public void HideReminder()
     {
-        reminderPanel.SetActive(false);
+        if (reminderPanel != null) reminderPanel.SetActive(false);
     }
     #endregion
+
     #region Poster Panel
-    public void ShowPoster()
-    {
-        posterPanel.SetActive(true);
-    }
-    public void HidePoster()
-    {
-        posterPanel.SetActive(false);
-    }
+    // Generator yaratgan yangi kodni o'yin boshlanishi bilanoq o'rnatish
     public void SetPosterCode(string code)
     {
+        currentSavedCode = code;
+
         if (posterCodeText != null)
-            posterCodeText.text = code;
+        {
+            posterCodeText.text = currentSavedCode;
+            // Mesh'ni majburiy yangilaymiz (Panel yopiq bo'lsa ham render qilish uchun)
+            posterCodeText.ForceMeshUpdate();
+            Debug.Log("<color=green>[ObjectiveUIManager]</color> Poster kodi o'yin boshida muvaffaqiyatli o'rnatildi: " + currentSavedCode);
+        }
+        else
+        {
+            Debug.LogError("<color=red>[ObjectiveUIManager]</color> posterCodeText Inspector'da biriktirilmagan!");
+        }
+    }
+
+    public void ShowPoster()
+    {
+        if (posterPanel != null)
+        {
+            posterPanel.SetActive(true);
+
+            // Panel ochilganda matnni xotiradagi kodga tenglashtiramiz
+            if (posterCodeText != null && !string.IsNullOrEmpty(currentSavedCode))
+            {
+                posterCodeText.text = currentSavedCode;
+            }
+        }
+    }
+
+    public void HidePoster()
+    {
+        if (posterPanel != null)
+        {
+            posterPanel.SetActive(false);
+        }
     }
     #endregion
-    #region Typing Effect Coroutine (Butun audio uchun)
+
+    #region Typing Effect Coroutine
     IEnumerator TypeMessage(TMP_Text textUI, string message)
     {
+        if (textUI == null) yield break;
+
         textUI.text = "";
         if (typingAudio != null && typingClip != null)
         {
@@ -124,11 +177,13 @@ public class ObjectiveUIManager : MonoBehaviour
             typingAudio.volume = 0.5f;
             typingAudio.Play();
         }
+
         foreach (char c in message)
         {
             textUI.text += c;
             yield return new WaitForSeconds(typingSpeed);
         }
+
         if (typingAudio != null && typingAudio.isPlaying)
         {
             typingAudio.Stop();
