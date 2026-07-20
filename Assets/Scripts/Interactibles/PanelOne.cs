@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PanelOne : Interactable
 {
-    public GameObject puzzleCanvas; // SlidePuzzle canvas shu yerga biriktiriladi
+    public GameObject puzzleCanvas; // Endi bu yerga CodePanel (InputCodeManager ostidagi) biriktiriladi
 
     private void Start()
     {

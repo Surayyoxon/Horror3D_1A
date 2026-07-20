@@ -28,13 +28,18 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private AudioSource audioSource;
     private Vector3 velocity;
-
     private float stepTimer;
+
+    // O'yinchi haqiqatda harakat tugmalarini bosayotganini tekshirish uchun o'zgaruvchi
+    private bool isTryingToMove;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         audioSource = GetComponent<AudioSource>();
+
+        audioSource.loop = false;
+        audioSource.playOnAwake = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -52,9 +57,10 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move =
-            transform.right * x +
-            transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        // Agar o'yinchi WASD yoki strelkalarni bosayotgan bo'lsa true bo'ladi
+        isTryingToMove = move.sqrMagnitude > 0.01f;
 
         float currentSpeed = walkSpeed;
 
@@ -77,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -95,19 +100,28 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFootsteps()
     {
-        if (!controller.isGrounded)
+        // 1. Agar o'yinchi havoda bo'lsa yoki harakat qilmayotgan bo'lsa tovushni o'chiramiz
+        if (!controller.isGrounded || !isTryingToMove)
+        {
+            stepTimer = 0f;
+            // Faqat o'yinchi to'xtaganda audio keskin uzilishi uchun Stop ishlatamiz
+            if (!isTryingToMove && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
             return;
+        }
 
-        bool isMoving =
-            Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 ||
-            Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0;
-
-        if (!isMoving)
+        // 2. Agar o'yinchi devorga taqalib qolgan bo'lsa (tugma bosilgan lekin jismonan siljimayotgan bo'lsa)
+        // CharacterController devorga urilganda velocity juda kichik bo'lib qoladi
+        Vector3 actualHorizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
+        if (actualHorizontalVelocity.magnitude < 0.2f)
         {
             stepTimer = 0f;
             return;
         }
 
+        // 3. Tezlikka qarab qadam chastotasini aniqlash
         float stepRate = walkStepRate;
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -130,9 +144,7 @@ public class PlayerMovement : MonoBehaviour
         if (footstepSounds == null || footstepSounds.Length == 0)
             return;
 
-        AudioClip clip =
-            footstepSounds[Random.Range(0, footstepSounds.Length)];
-
+        AudioClip clip = footstepSounds[Random.Range(0, footstepSounds.Length)];
         audioSource.PlayOneShot(clip);
     }
 }
