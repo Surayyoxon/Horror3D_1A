@@ -855,8 +855,8 @@ RectTransform:
   - {fileID: 1111469447}
   - {fileID: 2088767604}
   - {fileID: 1116102748}
-  - {fileID: 1266476483}
   - {fileID: 916137610}
+  - {fileID: 1266476483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 29.73
@@ -36799,7 +36799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1767523235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36913,6 +36913,7 @@ MonoBehaviour:
   - {fileID: 1912093808}
   clearButton: {fileID: 1348591599}
   enterButton: {fileID: 970528637}
+  cancelButton: {fileID: 0}
   screamer: {fileID: 1767523241}
 --- !u!82 &1767523240
 AudioSource:
@@ -37024,7 +37025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screamSound: {fileID: 1767523240}
   screamerImageUI: {fileID: 644726235}
-  screamerDuration: 0.4
+  screamerDuration: 1
   onCriticalFailure:
     m_PersistentCalls:
       m_Calls: []
