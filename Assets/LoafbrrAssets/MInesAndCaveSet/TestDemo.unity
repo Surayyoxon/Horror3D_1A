@@ -2758,6 +2758,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3584,6 +3594,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3998,6 +4018,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4578,6 +4608,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5008,6 +5048,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5378,6 +5428,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5452,6 +5512,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5525,6 +5595,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5604,6 +5684,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 130570653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &281323844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1514301758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &281323845
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281323844}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &281323846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281323844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e190bc45f151b4468c302c1ea33a550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 967167090}
+  agent: {fileID: 281323845}
+  animator: {fileID: 281323847}
+  attackDistance: 2.5
+  damage: 0
+  attackCooldown: 1
+--- !u!95 &281323847 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1514301758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &285188160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5740,6 +5872,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5963,6 +6105,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5988,6 +6140,7 @@ GameObject:
   - component: {fileID: 330585547}
   - component: {fileID: 330585549}
   - component: {fileID: 330585548}
+  - component: {fileID: 330585550}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6143,6 +6296,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 200
   playerBody: {fileID: 967167090}
+--- !u!114 &330585550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3681720619b3447831b45d2c6e5a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &338447960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6205,6 +6370,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6279,6 +6454,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7907,6 +8092,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8148,6 +8343,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9370,6 +9575,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_C
       objectReference: {fileID: 0}
+    - target: {fileID: 1012808275931989928, guid: 48194ce1a2c35a84b8b35241c94b9d4b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012808275931989928, guid: 48194ce1a2c35a84b8b35241c94b9d4b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 3516017066930023958, guid: 48194ce1a2c35a84b8b35241c94b9d4b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10476,6 +10691,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10904,6 +11129,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Cave_A
       objectReference: {fileID: 0}
+    - target: {fileID: 3891908200146587722, guid: 732f901be6361bd45989cb8196f683d2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891908200146587722, guid: 732f901be6361bd45989cb8196f683d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 8173746148612110432, guid: 732f901be6361bd45989cb8196f683d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11175,6 +11410,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13426,6 +13671,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13843,6 +14098,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mound_A (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14064,6 +14329,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14776,6 +15051,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15796,6 +16081,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mound_D (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8376034943857680932, guid: 061fcd1852d01aa43a232b19a89b9ee4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376034943857680932, guid: 061fcd1852d01aa43a232b19a89b9ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15893,6 +16188,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Cave_B (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502038320044356790, guid: dd67638cac61f0241b71c5e56e9738c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502038320044356790, guid: dd67638cac61f0241b71c5e56e9738c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5819569817690653172, guid: dd67638cac61f0241b71c5e56e9738c8,
         type: 3}
@@ -16657,6 +16962,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17701,6 +18016,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17774,6 +18099,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18350,6 +18685,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18931,6 +19276,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19151,6 +19506,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19298,6 +19663,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mound_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376034943857680932, guid: 061fcd1852d01aa43a232b19a89b9ee4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376034943857680932, guid: 061fcd1852d01aa43a232b19a89b9ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19883,6 +20258,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19906,6 +20291,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Cave_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502038320044356790, guid: dd67638cac61f0241b71c5e56e9738c8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502038320044356790, guid: dd67638cac61f0241b71c5e56e9738c8,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5819569817690653172, guid: dd67638cac61f0241b71c5e56e9738c8,
         type: 3}
@@ -20030,6 +20425,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20598,6 +21003,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20745,6 +21160,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21161,6 +21586,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21368,6 +21803,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21662,6 +22107,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22063,6 +22518,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23420,6 +23885,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23493,6 +23968,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mound_A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26127,6 +26612,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27770,6 +28265,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28634,6 +29139,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28781,6 +29296,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29606,6 +30131,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29753,6 +30288,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30743,6 +31288,69 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1497729697}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1503269162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503269164}
+  - component: {fileID: 1503269163}
+  m_Layer: 0
+  m_Name: NavMeshSurface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1503269163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503269162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 8386f52aee1e4ca448a000724c5a28f0, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &1503269164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503269162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.78, y: 0.06, z: -0.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1513462297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30817,6 +31425,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1513462297}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1514301758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 36.944965
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6075978
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Warzombie F Pedroso@Old Man Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6444ebffcc7fa834d890e8c354b962a4, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281323846}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9f26bddca6537a444a6bbfacb54b3d5a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 281323845}
+  m_SourcePrefab: {fileID: 100100000, guid: 9f26bddca6537a444a6bbfacb54b3d5a, type: 3}
 --- !u!1001 &1523452813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31175,6 +31879,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32184,6 +32898,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mound_A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32258,6 +32982,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32331,6 +33065,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32625,6 +33369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33840,6 +34594,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mound_A (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33913,6 +34677,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36303,6 +37077,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36693,6 +37477,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36799,7 +37593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1767523235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37276,6 +38070,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -37541,6 +38345,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38215,6 +39029,174 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1800523629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1803811511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803811515}
+  - component: {fileID: 1803811514}
+  - component: {fileID: 1803811513}
+  - component: {fileID: 1803811512}
+  m_Layer: 0
+  m_Name: ScreamerAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1803811512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803811511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ca10db7aa703c48af4dc107f51255a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostModel: {fileID: 281323844}
+  screamSound: {fileID: 1803811513}
+  subBassSound: {fileID: 0}
+  delay: 0
+  visibleDuration: 10
+--- !u!82 &1803811513
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803811511}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: beff1357acc0a6b4597c2d41d1123e65, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!65 &1803811514
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803811511}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5599518, y: 1.1882554, z: 8.168577}
+  m_Center: {x: 0.090112686, y: 0.094127715, z: 0.33461857}
+--- !u!4 &1803811515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803811511}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.18, y: 0.35, z: -0.039557144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1804041988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39968,6 +40950,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40725,6 +41717,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40932,6 +41934,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41840,6 +42852,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41913,6 +42935,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644410685189140245, guid: 109845b2f9372fa4595fcfb23069f441,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644410685189140245, guid: 109845b2f9372fa4595fcfb23069f441,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42135,6 +43167,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -42493,6 +43535,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mound_A (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4584569024536062594, guid: 2b43744eb9336be4983c4e426ed87450,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -42566,6 +43618,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground_Mines_A (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43213,7 +44275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionName: Interact
-  puzzleCanvas: {fileID: 1460612772}
+  puzzleCanvas: {fileID: 816888369}
 --- !u!1001 &2076444554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44568,6 +45630,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_Mines_A (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681368186709870648, guid: 5a681486c498eaf48bd25594270c0bc6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44844,3 +45916,6 @@ SceneRoots:
   - {fileID: 816888374}
   - {fileID: 1460612776}
   - {fileID: 1767523238}
+  - {fileID: 1803811515}
+  - {fileID: 1503269164}
+  - {fileID: 1514301758}
