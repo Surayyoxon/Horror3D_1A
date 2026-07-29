@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class KeycardItem : Interactable
 {
+    public GameObject enemyObject; // Inspector'dan dushman obyektini bog'lang
+
     private void Start()
     {
         interactionName = "Pick up Keycard";
@@ -13,6 +15,10 @@ public class KeycardItem : Interactable
         {
             GameManager.Instance.OnKeycardCollected();
             ObjectiveUIManager.Instance.HideInteraction();
+
+            if (enemyObject != null)
+                enemyObject.SetActive(true); // dushmanni ishga tushirish
+
             Destroy(gameObject); // Olinganidan keyin xonadan yo'qoladi
         }
     }

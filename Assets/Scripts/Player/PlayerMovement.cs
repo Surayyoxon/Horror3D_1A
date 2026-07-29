@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private float stepTimer;
 
-    // O'yinchi haqiqatda harakat tugmalarini bosayotganini tekshirish uchun o'zgaruvchi
     private bool isTryingToMove;
 
     void Start()
@@ -41,12 +40,22 @@ public class PlayerMovement : MonoBehaviour
         audioSource.loop = false;
         audioSource.playOnAwake = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // O'zgardi: Cursor boshqaruvi MenuManager orqali amalga oshiriladi,
+        // shuning uchun Start'dagi Cursor.lockState olib tashlandi.
     }
 
     void Update()
     {
+        // YANGI: O'yin to'xtatilgan bo'lsa (Menu open / Game Paused / Died) o'yinchi harakat qilmaydi!
+        if (Time.timeScale == 0f)
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+            return;
+        }
+
         Move();
         HandleCrouch();
         HandleFootsteps();
@@ -59,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        // Agar o'yinchi WASD yoki strelkalarni bosayotgan bo'lsa true bo'ladi
         isTryingToMove = move.sqrMagnitude > 0.01f;
 
         float currentSpeed = walkSpeed;
@@ -104,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         if (!controller.isGrounded || !isTryingToMove)
         {
             stepTimer = 0f;
-            // Faqat o'yinchi to'xtaganda audio keskin uzilishi uchun Stop ishlatamiz
             if (!isTryingToMove && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -112,8 +119,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // 2. Agar o'yinchi devorga taqalib qolgan bo'lsa (tugma bosilgan lekin jismonan siljimayotgan bo'lsa)
-        // CharacterController devorga urilganda velocity juda kichik bo'lib qoladi
+        // 2. Devorga taqalib qolgandagi tekshiruv
         Vector3 actualHorizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
         if (actualHorizontalVelocity.magnitude < 0.2f)
         {
@@ -121,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // 3. Tezlikka qarab qadam chastotasini aniqlash
+        // 3. Tezlikka qarab qadam chastotasi
         float stepRate = walkStepRate;
 
         if (Input.GetKey(KeyCode.LeftShift))

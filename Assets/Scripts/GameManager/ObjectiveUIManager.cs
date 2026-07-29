@@ -28,7 +28,6 @@ public class ObjectiveUIManager : MonoBehaviour
     public AudioClip typingClip;
     private Coroutine typingRoutine;
 
-    // Yaratilgan kodni doimiy saqlash uchun o'zgaruvchi
     private string currentSavedCode = "";
 
     private void Awake()
@@ -41,12 +40,23 @@ public class ObjectiveUIManager : MonoBehaviour
 
     private void Start()
     {
-        // O'yin boshida hamma panellarni yopamiz
+        // O'yin boshida barcha panellarni yopib qo'yamiz
+        HideAllObjectivePanels();
+    }
+
+    // YANGI: Barcha topshiriq UI panellarini o'chiruvchi umumiy metod
+    public void HideAllObjectivePanels()
+    {
         if (exitTriggerPanel != null) exitTriggerPanel.SetActive(false);
         if (interactionPanel != null) interactionPanel.SetActive(false);
         if (generatorPanel != null) generatorPanel.SetActive(false);
         if (reminderPanel != null) reminderPanel.SetActive(false);
         if (posterPanel != null) posterPanel.SetActive(false);
+
+        if (typingAudio != null && typingAudio.isPlaying)
+        {
+            typingAudio.Stop();
+        }
     }
 
     #region Exit & Main Objective Panel
@@ -76,6 +86,9 @@ public class ObjectiveUIManager : MonoBehaviour
     #region Interaction (E tugmasi)
     public void ShowInteraction(string action)
     {
+        // Agar o'yin pauzada (Time.timeScale == 0) bo'lsa, interaksiya panelini ko'rsatmaymiz
+        if (Time.timeScale == 0f) return;
+
         if (interactionPanel != null)
         {
             interactionPanel.SetActive(true);
@@ -123,7 +136,6 @@ public class ObjectiveUIManager : MonoBehaviour
     #endregion
 
     #region Poster Panel
-    // Generator yaratgan yangi kodni o'yin boshlanishi bilanoq o'rnatish
     public void SetPosterCode(string code)
     {
         currentSavedCode = code;
@@ -131,7 +143,6 @@ public class ObjectiveUIManager : MonoBehaviour
         if (posterCodeText != null)
         {
             posterCodeText.text = currentSavedCode;
-            // Mesh'ni majburiy yangilaymiz (Panel yopiq bo'lsa ham render qilish uchun)
             posterCodeText.ForceMeshUpdate();
             Debug.Log("<color=green>[ObjectiveUIManager]</color> Poster kodi o'yin boshida muvaffaqiyatli o'rnatildi: " + currentSavedCode);
         }
@@ -147,7 +158,6 @@ public class ObjectiveUIManager : MonoBehaviour
         {
             posterPanel.SetActive(true);
 
-            // Panel ochilganda matnni xotiradagi kodga tenglashtiramiz
             if (posterCodeText != null && !string.IsNullOrEmpty(currentSavedCode))
             {
                 posterCodeText.text = currentSavedCode;
@@ -181,7 +191,8 @@ public class ObjectiveUIManager : MonoBehaviour
         foreach (char c in message)
         {
             textUI.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            // WaitForSeconds yerine WaitForSecondsRealtime ishlatildi (Time.timeScale 0 bo'lsa ham muzlab qolmaydi)
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
         if (typingAudio != null && typingAudio.isPlaying)

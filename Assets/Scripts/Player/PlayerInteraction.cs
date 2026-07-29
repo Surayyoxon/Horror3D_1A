@@ -1,20 +1,39 @@
 using UnityEngine;
+
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactionDistance = 3f;
     public LayerMask interactableLayer;
     private Interactable currentInteractable;
-    private Camera playerCamera;              // <-- 1) SHU QATORNI QO'SHING
+    private Camera playerCamera;
 
-    void Start()                               // <-- 2) SHU METODNI QO'SHING
+    void Start()
     {
+        // 1. Kamerani topishni xavfsizroq qilish
         playerCamera = Camera.main;
+        if (playerCamera == null)
+        {
+            playerCamera = GetComponentInChildren<Camera>();
+        }
     }
 
     void Update()
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);  // <-- 3) SHU QATORNI ALMASHTIRING
+        // 2. YANGI: Menyu ochiqligida yoki pauzada interaksiyani butunlay to'xtatamiz
+        if (Time.timeScale == 0f)
+        {
+            if (currentInteractable != null)
+            {
+                ClearCurrentInteractable();
+            }
+            return;
+        }
+
+        if (playerCamera == null) return;
+
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
+
         if (Physics.Raycast(ray, out hit, interactionDistance, interactableLayer))
         {
             Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -23,20 +42,37 @@ public class PlayerInteraction : MonoBehaviour
                 if (currentInteractable != interactable)
                 {
                     currentInteractable = interactable;
-                    ObjectiveUIManager.Instance.ShowInteraction(currentInteractable.interactionName);
+                    if (ObjectiveUIManager.Instance != null)
+                    {
+                        ObjectiveUIManager.Instance.ShowInteraction(currentInteractable.interactionName);
+                    }
                 }
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     currentInteractable.Interact();
-                    currentInteractable = null;
+                    ClearCurrentInteractable();
                 }
+            }
+            else
+            {
+                ClearCurrentInteractable();
             }
         }
         else
         {
-            if (currentInteractable != null)
+            ClearCurrentInteractable();
+        }
+    }
+
+    // Yordamchi metod: UI vizual matnlarni yopish va obyektni tozalash
+    private void ClearCurrentInteractable()
+    {
+        if (currentInteractable != null)
+        {
+            currentInteractable = null;
+            if (ObjectiveUIManager.Instance != null)
             {
-                currentInteractable = null;
                 ObjectiveUIManager.Instance.HideInteraction();
                 ObjectiveUIManager.Instance.HideGeneratorInfo();
             }
