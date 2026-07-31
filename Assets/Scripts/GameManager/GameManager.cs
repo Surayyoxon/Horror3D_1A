@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
         Panel01Active,
         Panel02Active,
         HasKeycard,
-        Escaped,
-        Died // YANGI: o'yinchi halok bo'lgan holat
+        Escaped
     }
 
     public GameStep currentStep = GameStep.FindExit;
@@ -30,8 +29,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Buni to'g'ridan-to'g'ri Start'da emas, balki PLAY tugmasi bosilganda
-        // yoki o'yin birinchi marta faol bo'lganda chaqirgan ma'qul.
         ObjectiveUIManager.Instance.SetReminder("Objective: Find a way out of the mine.");
     }
 
@@ -126,7 +123,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // AYNAN SHU FUNKSIYA ENG OXIRIGA QO'SHILDI
     public void OnEscape()
     {
         if (currentStep == GameStep.HasKeycard)
@@ -138,33 +134,22 @@ public class GameManager : MonoBehaviour
             // Ekranga g'alaba matnini chiqarish
             ObjectiveUIManager.Instance.ShowExitObjective("YOU ESCAPED!\n\nYou survived the dark mine.");
 
-            // YANGI: EscapedMenu panelini ochamiz (o'yinni pauza qiladi, cursor'ni ochadi)
-            if (MenuManager.Instance != null)
-            {
-                MenuManager.Instance.ShowEscapedMenu();
-            }
-
             // O'yin tugaganligi haqida konsolga xabar
             Debug.Log("Player has escaped successfully! Level Complete.");
         }
     }
 
-    // YANGI: O'yinchi ghost/screamer tomonidan ushlanganda yoki halok bo'lganda
-    // shu metodni chaqiring (masalan, GhostAI yoki jump scare skriptidan).
+    // O'YINCHI O'LGANDA CHAQRILADIGAN METOD (PlayerHealth.cs uchun)
     public void OnPlayerDied()
     {
-        if (currentStep == GameStep.Died) return; // Ikki marta chaqirilib ketmasligi uchun
+        Debug.Log("Player has died!");
 
-        currentStep = GameStep.Died;
-
-        ObjectiveUIManager.Instance.HideReminder();
-        ObjectiveUIManager.Instance.HideInteraction();
-
-        if (MenuManager.Instance != null)
+        // Agar Game Over paneli mavjud bo'lsa, shu yerda chiqarishingiz mumkin
+        if (ObjectiveUIManager.Instance != null)
         {
-            MenuManager.Instance.ShowYouDiedMenu();
+            ObjectiveUIManager.Instance.HideReminder();
+            ObjectiveUIManager.Instance.HideInteraction();
+            ObjectiveUIManager.Instance.ShowExitObjective("YOU DIED\n\nThe mine claimed another soul...");
         }
-
-        Debug.Log("Player has died. Showing YouDiedMenu.");
     }
 }

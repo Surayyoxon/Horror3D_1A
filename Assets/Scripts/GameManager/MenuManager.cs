@@ -1,179 +1,193 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    [Header("Menu Panels")]
-    [SerializeField] private GameObject mainMenu;
-    [SerializeField] private GameObject loadingMenu;
-    [SerializeField] private GameObject gameMenu;
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject youDiedMenu;
-    [SerializeField] private GameObject escapedMenu;
+    [Header("Menu Panellari (Inspector'da tashlang)")]
+    public GameObject mainMenu;
+    public GameObject loadingMenu;
+    public GameObject gameMenu;
+    public GameObject pauseMenu;
+    public GameObject youDiedMenu;
+    public GameObject escapedMenu;
 
-    [Header("UI Canvas (Objective)")]
-    // Ekranda menyu turganda topshiriq yozuvi ko'rinmasligi uchun:
-    [SerializeField] private GameObject objectiveCanvas;
+    [Header("Sozlamalar")]
+    public float minLoadingTime = 1.5f; // Loading ekrani kamida shuncha ko'rinadi
 
-    [Header("Player Scripts Control")]
-    // Player obyektingizdagi PlayerMovement va MouseLook skriptlarini shu yerga ulaysiz:
-    [SerializeField] private MonoBehaviour playerMovementScript;
-    [SerializeField] private MonoBehaviour playerMouseLookScript;
+    [Header("Main Menu tugmalari")]
+    public Button continueButton; // Save bo'lmasa o'chiq turadi (ixtiyoriy)
+
+    private bool isPaused = false;
+    private bool inGame = false;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
     }
 
     private void Start()
     {
-        // O'yin boshlanganda faqat MainMenu ko'rsatiladi
         ShowMainMenu();
     }
 
     private void Update()
     {
-        // ESC tugmasi bosilganda pauza menyusini ochish/yopish
-        if (Input.GetKeyDown(KeyCode.Escape))
+        // ESC bilan pauza qilish / davom ettirish
+        if (inGame && Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GameManager.Instance != null &&
-                GameManager.Instance.currentStep != GameManager.GameStep.Escaped &&
-                GameManager.Instance.currentStep != GameManager.GameStep.Died)
-            {
-                if (pauseMenu != null && pauseMenu.activeSelf)
-                {
-                    ResumeGame();
-                }
-                else
-                {
-                    PauseGame();
-                }
-            }
+            if (isPaused) ResumeGame();
+            else PauseGame();
         }
     }
 
-    #region Panel Control
-    private void CloseAllPanels()
+    // Hamma panellarni yopib, faqat bittasini ochadi
+    private void ShowOnly(GameObject panel)
     {
-        if (mainMenu) mainMenu.SetActive(false);
-        if (loadingMenu) loadingMenu.SetActive(false);
-        if (gameMenu) gameMenu.SetActive(false);
-        if (pauseMenu) pauseMenu.SetActive(false);
-        if (youDiedMenu) youDiedMenu.SetActive(false);
-        if (escapedMenu) escapedMenu.SetActive(false);
+        mainMenu.SetActive(panel == mainMenu);
+        loadingMenu.SetActive(panel == loadingMenu);
+        gameMenu.SetActive(panel == gameMenu);
+        pauseMenu.SetActive(panel == pauseMenu);
+        youDiedMenu.SetActive(panel == youDiedMenu);
+        escapedMenu.SetActive(panel == escapedMenu);
     }
 
-    private void OpenPanel(GameObject panel)
+    private void SetCursor(bool free)
     {
-        CloseAllPanels();
-        if (panel != null)
-        {
-            panel.SetActive(true);
-        }
+        Cursor.lockState = free ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = free;
     }
 
-    private void SetCursorState(bool isMenuOpen)
-    {
-        if (isMenuOpen)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
+    // ================= MAIN MENU =================
 
-    private void SetPlayerControl(bool state)
-    {
-        if (playerMovementScript != null) playerMovementScript.enabled = state;
-        if (playerMouseLookScript != null) playerMouseLookScript.enabled = state;
-    }
-    #endregion
-
-    #region Button Actions
     public void ShowMainMenu()
     {
-        Time.timeScale = 0f; // Menyu turganda o'yin to'xtab turadi
-        SetCursorState(true);
-        OpenPanel(mainMenu);
+        inGame = false;
+        isPaused = false;
+        Time.timeScale = 0f;
+        SetCursor(true);
+        ShowOnly(mainMenu);
 
-        if (objectiveCanvas != null) objectiveCanvas.SetActive(false);
-        SetPlayerControl(false); // Player harakati va kamerasini o'chirish
+        // Save bo'lmasa Continue tugmasi bosilmaydi
+        if (continueButton != null)
+            continueButton.interactable = PlayerPrefs.HasKey("HasSave");
     }
 
-    public void PlayButton()
+    // Play tugmasi — yangi o'yin
+    public void PlayGame()
     {
-        Time.timeScale = 1f; // O'yin vaqtini yurgizish
-        SetCursorState(false); // Sichqoncha kursorini yashirish va bloklash
-        OpenPanel(gameMenu); // HUD (interfeys)ni ochish
-
-        if (objectiveCanvas != null) objectiveCanvas.SetActive(true);
-        SetPlayerControl(true); // Player harakati va kamerasini yoqish
+        PlayerPrefs.SetInt("HasSave", 1);
+        PlayerPrefs.Save();
+        StartCoroutine(LoadGameScene());
     }
 
-    public void ContinueButton()
+    // Continue tugmasi — o'yinni davom ettirish
+    public void ContinueGame()
     {
-        PlayButton();
+        StartCoroutine(LoadGameScene());
     }
 
+    // Quit tugmasi — o'yindan chiqish
+    public void QuitGame()
+    {
+        Debug.Log("Quit Game");
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+
+    // ================= LOADING =================
+
+    // Sahna yuklanmaydi — hamma narsa shu sahnaning o'zida,
+    // shunchaki Loading ko'rsatib, o'yinni boshlaymiz
+    private IEnumerator LoadGameScene()
+    {
+        ShowOnly(loadingMenu);
+
+        yield return new WaitForSecondsRealtime(minLoadingTime);
+
+        StartGameplay();
+    }
+
+    // O'yinni boshlash — GameMenu ochiladi, vaqt yuradi, cursor qulflanadi
+    private void StartGameplay()
+    {
+        inGame = true;
+        isPaused = false;
+        Time.timeScale = 1f;
+        SetCursor(false);
+        ShowOnly(gameMenu);
+    }
+
+    // ================= PAUSE MENU =================
+
+    // PauseButton tugmasi
     public void PauseGame()
     {
-        Time.timeScale = 0f;
-        SetCursorState(true);
-        OpenPanel(pauseMenu);
+        if (!inGame) return;
 
-        SetPlayerControl(false);
+        isPaused = true;
+        Time.timeScale = 0f;
+        SetCursor(true);
+        ShowOnly(pauseMenu);
     }
 
+    // Resume tugmasi
     public void ResumeGame()
     {
+        isPaused = false;
         Time.timeScale = 1f;
-        SetCursorState(false);
-        OpenPanel(gameMenu);
-
-        SetPlayerControl(true);
+        SetCursor(false);
+        ShowOnly(gameMenu);
     }
 
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    // ================= YOU DIED MENU =================
 
-    public void QuitButton()
-    {
-        Debug.Log("O'yindan chiqildi!");
-        Application.Quit();
-    }
-
-    public void ShowEscapedMenu()
-    {
-        Time.timeScale = 0f;
-        SetCursorState(true);
-        OpenPanel(escapedMenu);
-
-        SetPlayerControl(false);
-    }
-
+    // Buni PlayerHealth.Die() ichidan chaqiring: MenuManager.Instance.ShowYouDiedMenu();
     public void ShowYouDiedMenu()
     {
+        inGame = false;
         Time.timeScale = 0f;
-        SetCursorState(true);
-        OpenPanel(youDiedMenu);
-
-        SetPlayerControl(false);
+        SetCursor(true);
+        ShowOnly(youDiedMenu);
     }
-    #endregion
+
+    // Restart tugmasi — sahnani qayta yuklaydi
+    public void RestartGame()
+    {
+        StartCoroutine(RestartRoutine());
+    }
+
+    private IEnumerator RestartRoutine()
+    {
+        ShowOnly(loadingMenu);
+
+        AsyncOperation op = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        while (!op.isDone)
+            yield return null;
+
+        yield return new WaitForSecondsRealtime(minLoadingTime);
+        StartGameplay();
+    }
+
+    // ================= ESCAPED MENU =================
+
+    // Buni GameManager.OnEscape() ichidan chaqiring: MenuManager.Instance.ShowEscapedMenu();
+    public void ShowEscapedMenu()
+    {
+        inGame = false;
+        Time.timeScale = 0f;
+        SetCursor(true);
+        ShowOnly(escapedMenu);
+    }
+
+    // EscapedMenu'dagi Continue tugmasi — o'yinni davom ettirish
+    public void ContinueAfterEscape()
+    {
+        StartGameplay();
+    }
 }

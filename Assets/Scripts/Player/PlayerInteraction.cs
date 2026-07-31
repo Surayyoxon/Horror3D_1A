@@ -19,13 +19,9 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        // 2. YANGI: Menyu ochiqligida yoki pauzada interaksiyani butunlay to'xtatamiz
         if (Time.timeScale == 0f)
         {
-            if (currentInteractable != null)
-            {
-                ClearCurrentInteractable();
-            }
+            ClearCurrentInteractable();
             return;
         }
 
@@ -42,16 +38,21 @@ public class PlayerInteraction : MonoBehaviour
                 if (currentInteractable != interactable)
                 {
                     currentInteractable = interactable;
-                    if (ObjectiveUIManager.Instance != null)
+
+                    // 1. Standart E tugmasi matni
+                    ObjectiveUIManager.Instance.ShowInteraction(currentInteractable.interactionName);
+
+                    // 2. YANGI: Agar bu obyekt GENERATOR bo'lsa, Generator UI paneli ham ochiladi!
+                    Generator generator = interactable.GetComponent<Generator>();
+                    if (generator != null)
                     {
-                        ObjectiveUIManager.Instance.ShowInteraction(currentInteractable.interactionName);
+                        ObjectiveUIManager.Instance.ShowGeneratorInfo(generator.currentFuses, generator.requiredFuses);
                     }
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     currentInteractable.Interact();
-                    ClearCurrentInteractable();
                 }
             }
             else
