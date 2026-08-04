@@ -2,23 +2,27 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Health Settings")]
     public int maxHealth = 100;
     private int currentHealth;
     private bool isDead = false;
 
-    private void Start()
+    [Header("UI")]
+    public GameObject youDiedPanel; // Inspector'da "You Died" panelni tashlang
+
+    void Start()
     {
         currentHealth = maxHealth;
-        isDead = false;
+
+        if (youDiedPanel != null)
+            youDiedPanel.SetActive(false);
     }
 
     public void TakeDamage(int damage)
     {
-        if (isDead) return; // O'lgandan keyin qayta damage olmasligi uchun
+        if (isDead) return; // o'lgandan keyin damage olmasin
 
         currentHealth -= damage;
-        Debug.Log("Player HP: " + currentHealth);
+        Debug.Log("HP: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -27,33 +31,25 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    void Die()
     {
         if (isDead) return;
         isDead = true;
 
-        Debug.Log("Player Dead!");
+        Debug.Log("Player Dead");
 
-        // 1. GameManager'ga o'yinchi o'lganini xabar qilamiz
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.OnPlayerDied();
-        }
-        else if (MenuManager.Instance != null)
-        {
-            // Agar GameManager bo'lmasa, to'g'ridan-to'g'ri MenuManager orqali ochamiz
-            MenuManager.Instance.ShowYouDiedMenu();
-        }
+        // You Died panelni ochish
+        if (youDiedPanel != null)
+            youDiedPanel.SetActive(true);
 
-        // 2. O'yinchi harakatini yoki skriptlarini o'chirish (ixtiyoriy)
-        // MonoBehaviour playerController = GetComponent<PlayerController>();
-        // if (playerController != null) playerController.enabled = false;
-    }
+        // O'yinni pauza qilish
+        Time.timeScale = 0f;
 
-    // O'yin qayta boshlanganda salomatlikni tiklash uchun metod
-    public void HealFull()
-    {
-        currentHealth = maxHealth;
-        isDead = false;
+        // Cursor'ni ochib qo'yish (panel bilan ishlash uchun)
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Agar GameManager orqali state boshqarilsa:
+        // GameManager.Instance.SetGameStep(GameStep.PlayerDied);
     }
 }

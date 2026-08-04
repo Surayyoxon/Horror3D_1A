@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class Generator : Interactable
 {
-    // PlayerInteraction.cs qidirayotgan o'zgaruvchilar:
-    public int currentFuses = 0;
-    public int requiredFuses = 3; // O'zingizga kerakli saqlagichlar (fuse) sonini qo'ying
-
     private void Start()
     {
         // Ekranning pastida chiquvchi matn

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PanelTwo : Interactable
 {
-    public GameObject puzzleCanvas; // SudokuCanvas yoki istalgan boshqa o'yin canvasi shu yerga biriktiriladi
+    public GameObject puzzleCanvas; // SudokuCanvas (fon + grid) shu yerga biriktiriladi
 
     private void Start()
     {
@@ -19,17 +19,5 @@ public class PanelTwo : Interactable
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-    }
-
-    // Puzzle o'yini (Sudoku, Memory Game, yoki istalgan boshqasi) yechilganda
-    // shu metodni chaqirish kifoya
-    public void OnPuzzleCompleted()
-    {
-        puzzleCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        GameManager.Instance.OnPanel02Activated();
     }
 }

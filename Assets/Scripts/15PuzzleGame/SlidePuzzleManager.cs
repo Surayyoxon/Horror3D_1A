@@ -6,13 +6,9 @@ using System.Collections.Generic;
 public class SlidePuzzleManager : MonoBehaviour
 {
     public GameObject puzzleCanvas;
-    public Button[] tileButtons = new Button[16];
-    public Sprite[] numberSprites = new Sprite[15];
-    public Sprite emptySprite;
-
-    [Header("Which Panel Is This Puzzle For?")]
-    public PanelTwo panelTwo; // Agar bu Panel 2 uchun bo'lsa, shu yerga bog'lang
-    public bool isPanelOne = false; // Agar bu Panel 1 uchun bo'lsa, true qiling
+    public Button[] tileButtons = new Button[16];   // 16 ta tugma joyi (panjaradagi katak)
+    public Sprite[] numberSprites = new Sprite[15];  // 1 dan 15 gacha rasm (index 0 = "1" rasmi, index 14 = "15" rasmi)
+    public Sprite emptySprite;                       // Bo'sh katak uchun rasm (yoki null/shaffof)
 
     private int[] tiles = new int[16];
     private int emptyIndex;
@@ -36,6 +32,7 @@ public class SlidePuzzleManager : MonoBehaviour
         for (int i = 0; i < 15; i++) tiles[i] = i + 1;
         tiles[15] = 0;
         emptyIndex = 15;
+
         ShuffleBySwaps(200);
         RefreshUI();
     }
@@ -56,10 +53,12 @@ public class SlidePuzzleManager : MonoBehaviour
         List<int> neighbors = new List<int>();
         int row = index / 4;
         int col = index % 4;
+
         if (row > 0) neighbors.Add(index - 4);
         if (row < 3) neighbors.Add(index + 4);
         if (col > 0) neighbors.Add(index - 1);
         if (col < 3) neighbors.Add(index + 1);
+
         return neighbors;
     }
 
@@ -70,20 +69,22 @@ public class SlidePuzzleManager : MonoBehaviour
         tiles[b] = temp;
     }
 
+    // MUHIM O'ZGARISH: Endi matn o'rniga rasm (Sprite) yangilanadi
     private void RefreshUI()
     {
         for (int i = 0; i < 16; i++)
         {
             Image img = tileButtons[i].image;
+
             if (tiles[i] == 0)
             {
                 img.sprite = emptySprite;
-                img.color = new Color(1, 1, 1, 0);
+                img.color = new Color(1, 1, 1, 0); // Bo'sh joy ko'rinmas bo'lsin
                 tileButtons[i].interactable = false;
             }
             else
             {
-                img.sprite = numberSprites[tiles[i] - 1];
+                img.sprite = numberSprites[tiles[i] - 1]; // tiles[i]=1 bo'lsa, numberSprites[0] = "1" rasmi
                 img.color = Color.white;
                 tileButtons[i].interactable = true;
             }
@@ -93,6 +94,7 @@ public class SlidePuzzleManager : MonoBehaviour
     public void OnTileClicked(int index)
     {
         List<int> validMoves = GetValidNeighborIndexes(emptyIndex);
+
         if (validMoves.Contains(index))
         {
             SwapTiles(index, emptyIndex);
@@ -108,25 +110,19 @@ public class SlidePuzzleManager : MonoBehaviour
         {
             if (tiles[i] != i + 1) return;
         }
+
         StartCoroutine(CompletePuzzle());
     }
 
     private IEnumerator CompletePuzzle()
     {
         yield return new WaitForSecondsRealtime(0.8f);
+
         puzzleCanvas.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // O'ZGARTIRILGAN QISM: qaysi panel ekaniga qarab to'g'ri metodni chaqiradi
-        if (isPanelOne)
-        {
-            GameManager.Instance.OnPanel01Activated();
-        }
-        else if (panelTwo != null)
-        {
-            panelTwo.OnPuzzleCompleted();
-        }
+        GameManager.Instance.OnPanel01Activated();
     }
 }

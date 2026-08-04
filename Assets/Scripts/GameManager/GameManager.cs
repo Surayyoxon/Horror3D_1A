@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // AYNAN SHU FUNKSIYA ENG OXIRIGA QO'SHILDI
     public void OnEscape()
     {
         if (currentStep == GameStep.HasKeycard)
@@ -136,20 +137,6 @@ public class GameManager : MonoBehaviour
 
             // O'yin tugaganligi haqida konsolga xabar
             Debug.Log("Player has escaped successfully! Level Complete.");
-        }
-    }
-
-    // O'YINCHI O'LGANDA CHAQRILADIGAN METOD (PlayerHealth.cs uchun)
-    public void OnPlayerDied()
-    {
-        Debug.Log("Player has died!");
-
-        // Agar Game Over paneli mavjud bo'lsa, shu yerda chiqarishingiz mumkin
-        if (ObjectiveUIManager.Instance != null)
-        {
-            ObjectiveUIManager.Instance.HideReminder();
-            ObjectiveUIManager.Instance.HideInteraction();
-            ObjectiveUIManager.Instance.ShowExitObjective("YOU DIED\n\nThe mine claimed another soul...");
         }
     }
 }

@@ -10,10 +10,6 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        // YANGI: Menyu ochiq bo'lsa yoki o'yin pauzada bo'lsa (Time.timeScale == 0) kamerani burmaymiz!
-        if (Time.timeScale == 0f)
-            return;
-
         float mouseX =
             Input.GetAxis("Mouse X") *
             mouseSensitivity *

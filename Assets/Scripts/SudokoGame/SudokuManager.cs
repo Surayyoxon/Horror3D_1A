@@ -10,12 +10,12 @@ public class SudokuManager : MonoBehaviour
     public TMP_Text feedbackText;
 
     [Header("Qiyinlik")]
-    public int cellsToRemove = 8; // Nechta katak bo'sh qoldirilsin (16 tadan)
+    public int cellsToRemove = 4; // Nechta katak bo'sh qoldirilsin (16 tadan)
 
     private int[] puzzle = new int[16];
     private int[] solution = new int[16];
 
-    // Bazaviy (o'zgarmas) to'g'ri 4x4 sudoku yechimi (2x2 bloklar bilan)
+    // Bazaviy (o'zgarmas) to'g'ri 4x4 sudoku yechimi — aralashtirish uchun asos
     private readonly int[] baseSolution = new int[16]
     {
         1, 2, 3, 4,
@@ -30,15 +30,15 @@ public class SudokuManager : MonoBehaviour
         SetupBoard();
     }
 
-    // ------------------- Tasodifiy 4x4 Sudoku generatsiyasi -------------------
+    // ------------------- Tasodifiy 4x4 sudoku generatsiya qilish -------------------
     private void GenerateNewPuzzle()
     {
         int[] grid = (int[])baseSolution.Clone();
 
-        // 1) Qatorlarni band ichida (2 qatorlik guruh) aralashtirish
+        // 1) Qatorlarni "band" ichida aralashtirish (har band = 2 qator, jami 2 ta band)
         grid = ShuffleRowsWithinBands(grid);
 
-        // 2) Ustunlarni band ichida (2 ustunlik guruh) aralashtirish
+        // 2) Ustunlarni "band" ichida aralashtirish (har band = 2 ustun, jami 2 ta band)
         grid = ShuffleColsWithinBands(grid);
 
         // 3) Qator-bandlarni o'zaro almashtirish
@@ -47,7 +47,7 @@ public class SudokuManager : MonoBehaviour
         // 4) Ustun-bandlarni o'zaro almashtirish
         grid = ShuffleColBands(grid);
 
-        // 5) Raqamlarni tasodifiy almashtirish (1-4 aralashmasi)
+        // 5) Raqamlarni qayta belgilash (1->4, 2->1 kabi tasodifiy almashtirish, 1 dan 4 gacha)
         grid = RemapNumbers(grid);
 
         solution = grid;
@@ -85,29 +85,27 @@ public class SudokuManager : MonoBehaviour
         int[] result = (int[])grid.Clone();
         for (int band = 0; band < 2; band++) // 2 ta band, har biri 2 ustundan
         {
-            List<int> cols = new List<int> { band * 2, band * 2 + 1 };
-            Shuffle(cols);
-            for (int r = 0; r < 4; r++)
+            int c0 = band * 2;
+            int c1 = band * 2 + 1;
+            if (Random.Range(0, 2) == 0)
             {
-                result[r * 4 + band * 2 + 0] = grid[r * 4 + cols[0]];
-                result[r * 4 + band * 2 + 1] = grid[r * 4 + cols[1]];
+                SwapColsByColIndex(result, c0, c1);
             }
         }
         return result;
     }
+
     private int[] ShuffleRowBands(int[] grid)
     {
         if (Random.Range(0, 2) == 0) return grid;
 
         int[] result = (int[])grid.Clone();
+        // 2 ta bandni (har biri 2 qator) o'zaro almashtirish
         for (int rr = 0; rr < 2; rr++)
         {
-            for (int c = 0; c < 4; c++)
-            {
-                // Top va Bottom bandlarni almashtirish (0,1 qatorlar <-> 2,3 qatorlar)
-                result[(rr + 2) * 4 + c] = grid[rr * 4 + c];
-                result[rr * 4 + c] = grid[(rr + 2) * 4 + c];
-            }
+            int r0 = rr;
+            int r1 = 2 + rr;
+            SwapRows(result, r0, r1);
         }
         return result;
     }
@@ -119,12 +117,9 @@ public class SudokuManager : MonoBehaviour
         int[] result = (int[])grid.Clone();
         for (int cc = 0; cc < 2; cc++)
         {
-            for (int r = 0; r < 4; r++)
-            {
-                // Chap va O'ng bandlarni almashtirish (0,1 ustunlar <-> 2,3 ustunlar)
-                result[r * 4 + (cc + 2)] = grid[r * 4 + cc];
-                result[r * 4 + cc] = grid[r * 4 + (cc + 2)];
-            }
+            int c0 = cc;
+            int c1 = 2 + cc;
+            SwapColsByColIndex(result, c0, c1);
         }
         return result;
     }
@@ -152,6 +147,16 @@ public class SudokuManager : MonoBehaviour
         }
     }
 
+    private void SwapColsByColIndex(int[] grid, int c0, int c1)
+    {
+        for (int r = 0; r < 4; r++)
+        {
+            int temp = grid[r * 4 + c0];
+            grid[r * 4 + c0] = grid[r * 4 + c1];
+            grid[r * 4 + c1] = temp;
+        }
+    }
+
     private void Shuffle(List<int> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
@@ -160,7 +165,6 @@ public class SudokuManager : MonoBehaviour
             (list[i], list[j]) = (list[j], list[i]);
         }
     }
-
     // ------------------------------------------------------------------------------
 
     private void SetupBoard()
@@ -168,8 +172,6 @@ public class SudokuManager : MonoBehaviour
         for (int i = 0; i < 16; i++)
         {
             var cell = cells[i];
-            if (cell == null) continue;
-
             cell.text = "";
             cell.characterLimit = 1;
             cell.contentType = TMP_InputField.ContentType.IntegerNumber;
@@ -196,15 +198,12 @@ public class SudokuManager : MonoBehaviour
         {
             if (!int.TryParse(cells[i].text, out int value) || value != solution[i])
             {
-                if (feedbackText != null)
-                    feedbackText.text = "Incorrect. Try again.";
+                feedbackText.text = "Incorrect. Try again.";
                 return;
             }
         }
 
-        if (feedbackText != null)
-            feedbackText.text = "Access Granted!";
-
+        feedbackText.text = "Access Granted!";
         StartCoroutine(CompletePuzzle());
     }
 
@@ -212,16 +211,11 @@ public class SudokuManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
 
-        if (puzzleCanvas != null)
-            puzzleCanvas.SetActive(false);
-
+        puzzleCanvas.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.OnPanel02Activated();
-        }
+        GameManager.Instance.OnPanel02Activated();
     }
 }

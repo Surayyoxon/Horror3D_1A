@@ -128,6 +128,7 @@ public class ObjectiveUIManager : MonoBehaviour
     {
         currentSavedCode = code;
 
+
         if (posterCodeText != null)
         {
             posterCodeText.text = currentSavedCode;
@@ -192,3 +193,4 @@ public class ObjectiveUIManager : MonoBehaviour
     }
     #endregion
 }
+
