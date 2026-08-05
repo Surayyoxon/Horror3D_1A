@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
-    private void Start()
+    public void StartGameObjectives()
     {
         ObjectiveUIManager.Instance.SetReminder("Objective: Find a way out of the mine.");
     }
