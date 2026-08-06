@@ -1,54 +1,42 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// =====================================================================
+// MenuManager.cs
+// -----------------------------------------------------------------
+// This script is attached to the "MenuManager" object and controls
+// all menu panels (MainMenuPanel, PauseMenu, YouDie, Escaped, GameMenu)
+// and their buttons (Play, Quit, Resume, etc.).
+//
+// HOW IT WORKS:
+//  - Only ONE panel is ever visible at a time, the rest stay disabled
+//  - Each "Show..." function first disables everything,
+//    then enables the required panel
+//  - Buttons call these functions via OnClick() in the Inspector
+// =====================================================================
+
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager Instance { get; private set; }
-
-    [Header("Panellar (Hierarchy'dan mos obyektlarni shu yerga tashlang)")]
+    [Header("Panels (drag the matching objects here from the Hierarchy)")]
     [SerializeField] private GameObject mainMenuPanel;   // "MainMenuPanel"
     [SerializeField] private GameObject pauseMenuPanel;  // "PauseMenu"
     [SerializeField] private GameObject youDiePanel;      // "YouDie"
     [SerializeField] private GameObject escapedPanel;     // "Escaped"
-    [SerializeField] private GameObject gameMenuPanel;    // "GameMenu" (o'yin ichidagi HUD)
-
-    public bool isPuzzleOpen = false;
-    private bool isMenuCurrentlyOpen = true;
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    [SerializeField] private GameObject gameMenuPanel;    // "GameMenu" (in-game HUD)
 
     private void Start()
     {
+        // Only the main menu is visible when the game starts
         ShowMainMenu();
     }
 
-    private void LateUpdate()
-    {
-        if (isPuzzleOpen)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            SetCursorState(isMenuCurrentlyOpen);
-        }
-    }
-
+    // ---------------------------------------------------------------
+    // CURSOR STATE HANDLING
+    // ---------------------------------------------------------------
+    // menuOpen = true  -> cursor is visible and free to move (for clicking buttons)
+    // menuOpen = false -> cursor is hidden and locked to the screen center (for the FPS camera)
     private void SetCursorState(bool menuOpen)
     {
-        isMenuCurrentlyOpen = menuOpen;
-
         if (menuOpen)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -61,6 +49,13 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    // ---------------------------------------------------------------
+    // PANEL SWITCHING FUNCTIONS
+    // ---------------------------------------------------------------
+
+    // Helper function that disables all panels.
+    // Each reference is null-checked, so no error is thrown even if
+    // a panel hasn't been assigned in the Inspector yet - it's just skipped.
     private void CloseAllPanels()
     {
         if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
@@ -70,27 +65,13 @@ public class MenuManager : MonoBehaviour
         if (gameMenuPanel != null) gameMenuPanel.SetActive(false);
     }
 
-    private void ToggleObjectiveCanvas(bool show)
-    {
-        if (ObjectiveUIManager.Instance != null)
-        {
-            Canvas objCanvas = ObjectiveUIManager.Instance.GetComponent<Canvas>();
-            if (objCanvas != null)
-            {
-                objCanvas.enabled = show;
-            }
-        }
-    }
-
     public void ShowMainMenu()
     {
         Time.timeScale = 1f;
         CloseAllPanels();
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         SetCursorState(true);
-        ToggleObjectiveCanvas(false);
     }
-
 
     public void ShowGameMenu()
     {
@@ -98,17 +79,14 @@ public class MenuManager : MonoBehaviour
         CloseAllPanels();
         if (gameMenuPanel != null) gameMenuPanel.SetActive(true);
         SetCursorState(false);
-        ToggleObjectiveCanvas(true);
     }
 
     public void ShowPauseMenu()
     {
-        Debug.Log("ShowPauseMenu chaqirildi!");
         Time.timeScale = 0f;
         CloseAllPanels();
         if (pauseMenuPanel != null) pauseMenuPanel.SetActive(true);
         SetCursorState(true);
-        ToggleObjectiveCanvas(false);
     }
 
     public void ShowYouDie()
@@ -117,7 +95,6 @@ public class MenuManager : MonoBehaviour
         CloseAllPanels();
         if (youDiePanel != null) youDiePanel.SetActive(true);
         SetCursorState(true);
-        ToggleObjectiveCanvas(false);
     }
 
     public void ShowEscaped()
@@ -126,53 +103,65 @@ public class MenuManager : MonoBehaviour
         CloseAllPanels();
         if (escapedPanel != null) escapedPanel.SetActive(true);
         SetCursorState(true);
-        ToggleObjectiveCanvas(false);
     }
 
-    // === TUGMALAR UCHUN FUNKSIYALAR ===
+    // ---------------------------------------------------------------
+    // BUTTON FUNCTIONS (wired to OnClick() in the Inspector)
+    // ---------------------------------------------------------------
 
-   public void PlayButton()
-{
-    ShowGameMenu();
+    // === Buttons inside MainMenuPanel ===
 
-    if (GameManager.Instance != null && GameManager.Instance.currentStep == GameManager.GameStep.FindExit)
+    public void PlayButton()
     {
-        GameManager.Instance.StartGameObjectives();
+        ShowGameMenu();
     }
-}
 
     public void QuitButton()
     {
-        Debug.Log("O'yindan chiqildi!");
         Application.Quit();
 
 #if UNITY_EDITOR
+        // Application.Quit() doesn't work in the Unity Editor,
+        // so this line stops Play mode instead (Editor only)
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    // === Buttons inside PauseMenu ===
 
     public void ResumeButton()
     {
         ShowGameMenu();
     }
 
+    // === Buttons inside YouDie ===
 
+    // Reloads the current scene
     public void RestartButton()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Reset time scale, otherwise the reloaded scene stays paused too
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // === Buttons inside Escaped ===
+
     public void ContinueButton()
     {
+        // Next level/stage logic goes here.
+        // For now it just returns to the game menu:
         ShowGameMenu();
     }
 
+    // Quit button on the Escaped panel (same behavior as QuitButton() above)
     public void QuiteButton()
     {
         QuitButton();
     }
 
+    // === Shared button across multiple panels ===
+
+    // "MainMenuButton" is used by PauseMenu, YouDie, and Escaped panels,
+    // all wired to this single function
     public void MainMenuButton()
     {
         ShowMainMenu();
@@ -180,12 +169,22 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isMenuCurrentlyOpen && !isPuzzleOpen)
-            {
-                SetCursorState(true); // Faqat kursorni ko'rsatadi, panel ochmaydi
-            }
+            TogglePause();
+        }
+    }
+
+    // Toggles pause state on/off
+    public void TogglePause()
+    {
+        if (pauseMenuPanel != null && pauseMenuPanel.activeSelf)
+        {
+            ShowGameMenu();
+        }
+        else if (gameMenuPanel != null && gameMenuPanel.activeSelf)
+        {
+            ShowPauseMenu();
         }
     }
 }

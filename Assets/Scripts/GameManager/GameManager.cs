@@ -55,30 +55,25 @@ public class GameManager : MonoBehaviour
 
     public void OnInteractWithGenerator()
     {
-        // 1-HOLAT: Agar o'yinchi bloklangan chiqishni ko'rib, birinchi marta generatorga kelgan bo'lsa
+        // CASE 1: Player saw the blocked exit and is interacting with the generator for the first time
         if (currentStep == GameStep.BlockedExitSeen)
         {
             currentStep = GameStep.NeedFuses;
             ObjectiveUIManager.Instance.ShowGeneratorInfo(currentFusesFound, totalFusesRequired);
-            return; // Kod shu yerda to'xtaydi, keyingi shartga o'tib ketmaydi!
+            return; // Stop here, don't fall through to the next condition
         }
 
-        // 2-HOLAT: O'yinchi vazifani biladi va generator bilan qayta interaksiya qilyapti
+        // CASE 2: Player already knows the objective and is interacting with the generator again
         if (currentStep == GameStep.NeedFuses)
         {
-            // Agar fuselar yetarli bo'lsa, generatorni yoqamiz
             if (currentFusesFound >= totalFusesRequired)
             {
                 currentStep = GameStep.GeneratorActive;
-                ObjectiveUIManager.Instance.HideGeneratorInfo(); // 3 ta fuse top degan panel yopiladi
+                ObjectiveUIManager.Instance.HideGeneratorInfo();
                 ObjectiveUIManager.Instance.SetReminder("Objective: Activate Panel 01.");
-
-                // Chiroqlar va effektlar shu yerda yoqiladi
-                Debug.Log("Lights ON! Generator is running.");
             }
             else
             {
-                // Agar hali ham fuse yetarli bo'lmasa, shunchaki panelni qayta yangilab ko'rsatamiz
                 ObjectiveUIManager.Instance.ShowGeneratorInfo(currentFusesFound, totalFusesRequired);
             }
         }
@@ -123,20 +118,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // AYNAN SHU FUNKSIYA ENG OXIRIGA QO'SHILDI
     public void OnEscape()
     {
         if (currentStep == GameStep.HasKeycard)
         {
             currentStep = GameStep.Escaped;
-            ObjectiveUIManager.Instance.HideReminder();
-            ObjectiveUIManager.Instance.HideInteraction();
 
-            // Ekranga g'alaba matnini chiqarish
-            ObjectiveUIManager.Instance.ShowExitObjective("YOU ESCAPED!\n\nYou survived the dark mine.");
+            if (ObjectiveUIManager.Instance != null)
+            {
+                ObjectiveUIManager.Instance.HideReminder();
+                ObjectiveUIManager.Instance.HideInteraction();
+            }
 
-            // O'yin tugaganligi haqida konsolga xabar
-            Debug.Log("Player has escaped successfully! Level Complete.");
+            MenuManager menuManager = FindFirstObjectByType<MenuManager>();
+            if (menuManager != null)
+            {
+                menuManager.ShowEscaped();
+            }
         }
     }
 }

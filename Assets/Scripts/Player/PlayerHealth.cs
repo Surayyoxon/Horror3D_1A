@@ -6,20 +6,24 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     private bool isDead = false;
 
-    [Header("UI")]
-    public GameObject youDiedPanel; // Inspector'da "You Died" panelni tashlang
+    [Header("Boshqaruvchilar")]
+    // MenuManager skriptini inspector'da shu yerga bering
+    [SerializeField] private MenuManager menuManager;
 
     void Start()
     {
         currentHealth = maxHealth;
 
-        if (youDiedPanel != null)
-            youDiedPanel.SetActive(false);
+        // Agar Inspector'da biriktirilmagan bo'lsa, avtomatik topish
+        if (menuManager == null)
+        {
+            menuManager = FindFirstObjectByType<MenuManager>();
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        if (isDead) return; // o'lgandan keyin damage olmasin
+        if (isDead) return;
 
         currentHealth -= damage;
         Debug.Log("HP: " + currentHealth);
@@ -38,18 +42,14 @@ public class PlayerHealth : MonoBehaviour
 
         Debug.Log("Player Dead");
 
-        // You Died panelni ochish
-        if (youDiedPanel != null)
-            youDiedPanel.SetActive(true);
-
-        // O'yinni pauza qilish
-        Time.timeScale = 0f;
-
-        // Cursor'ni ochib qo'yish (panel bilan ishlash uchun)
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        // Agar GameManager orqali state boshqarilsa:
-        // GameManager.Instance.SetGameStep(GameStep.PlayerDied);
+        // MenuManager orqali YouDie panelini ochamiz va cursor/vaqtni boshqaramiz
+        if (menuManager != null)
+        {
+            menuManager.ShowYouDie();
+        }
+        else
+        {
+            Debug.LogError("MenuManager topilmadi! PlayerHealth skriptiga MenuManager ulanmagan.");
+        }
     }
 }

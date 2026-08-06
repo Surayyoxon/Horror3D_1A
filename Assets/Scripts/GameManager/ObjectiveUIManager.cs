@@ -28,7 +28,7 @@ public class ObjectiveUIManager : MonoBehaviour
     public AudioClip typingClip;
     private Coroutine typingRoutine;
 
-    // Yaratilgan kodni doimiy saqlash uchun o'zgaruvchi
+    // Stores the generated poster code persistently
     private string currentSavedCode = "";
 
     private void Awake()
@@ -41,7 +41,7 @@ public class ObjectiveUIManager : MonoBehaviour
 
     private void Start()
     {
-        // O'yin boshida hamma panellarni yopamiz
+        // Close all panels at the start of the game
         if (exitTriggerPanel != null) exitTriggerPanel.SetActive(false);
         if (interactionPanel != null) interactionPanel.SetActive(false);
         if (generatorPanel != null) generatorPanel.SetActive(false);
@@ -73,7 +73,7 @@ public class ObjectiveUIManager : MonoBehaviour
     }
     #endregion
 
-    #region Interaction (E tugmasi)
+    #region Interaction (E key)
     public void ShowInteraction(string action)
     {
         if (interactionPanel != null)
@@ -123,22 +123,16 @@ public class ObjectiveUIManager : MonoBehaviour
     #endregion
 
     #region Poster Panel
-    // Generator yaratgan yangi kodni o'yin boshlanishi bilanoq o'rnatish
+    // Sets the generator-created code as soon as the game starts
     public void SetPosterCode(string code)
     {
         currentSavedCode = code;
 
-
         if (posterCodeText != null)
         {
             posterCodeText.text = currentSavedCode;
-            // Mesh'ni majburiy yangilaymiz (Panel yopiq bo'lsa ham render qilish uchun)
+            // Force the mesh to update so it renders correctly even while the panel is inactive
             posterCodeText.ForceMeshUpdate();
-            Debug.Log("<color=green>[ObjectiveUIManager]</color> Poster kodi o'yin boshida muvaffaqiyatli o'rnatildi: " + currentSavedCode);
-        }
-        else
-        {
-            Debug.LogError("<color=red>[ObjectiveUIManager]</color> posterCodeText Inspector'da biriktirilmagan!");
         }
     }
 
@@ -148,7 +142,7 @@ public class ObjectiveUIManager : MonoBehaviour
         {
             posterPanel.SetActive(true);
 
-            // Panel ochilganda matnni xotiradagi kodga tenglashtiramiz
+            // Sync the displayed text with the saved code when the panel opens
             if (posterCodeText != null && !string.IsNullOrEmpty(currentSavedCode))
             {
                 posterCodeText.text = currentSavedCode;
@@ -193,4 +187,3 @@ public class ObjectiveUIManager : MonoBehaviour
     }
     #endregion
 }
-

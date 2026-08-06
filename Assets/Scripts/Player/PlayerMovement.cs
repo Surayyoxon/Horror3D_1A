@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private float stepTimer;
 
-    // O'yinchi haqiqatda harakat tugmalarini bosayotganini tekshirish uchun o'zgaruvchi
+    // True when the player is actually pressing a movement key
     private bool isTryingToMove;
 
     void Start()
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        // Agar o'yinchi WASD yoki strelkalarni bosayotgan bo'lsa true bo'ladi
+        // True when the player is pressing WASD or arrow keys
         isTryingToMove = move.sqrMagnitude > 0.01f;
 
         float currentSpeed = walkSpeed;
@@ -100,11 +100,11 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleFootsteps()
     {
-        // 1. Agar o'yinchi havoda bo'lsa yoki harakat qilmayotgan bo'lsa tovushni o'chiramiz
+        // 1. Mute footsteps if the player is airborne or not moving
         if (!controller.isGrounded || !isTryingToMove)
         {
             stepTimer = 0f;
-            // Faqat o'yinchi to'xtaganda audio keskin uzilishi uchun Stop ishlatamiz
+            // Only cut the audio when the player has actually stopped
             if (!isTryingToMove && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -112,8 +112,9 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // 2. Agar o'yinchi devorga taqalib qolgan bo'lsa (tugma bosilgan lekin jismonan siljimayotgan bo'lsa)
-        // CharacterController devorga urilganda velocity juda kichik bo'lib qoladi
+        // 2. Handle the case where the player is pressed against a wall
+        // (key held down but not actually moving). The CharacterController's
+        // velocity drops to near zero when it collides with a wall.
         Vector3 actualHorizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
         if (actualHorizontalVelocity.magnitude < 0.2f)
         {
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // 3. Tezlikka qarab qadam chastotasini aniqlash
+        // 3. Pick the step rate based on current speed
         float stepRate = walkStepRate;
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -142,6 +143,10 @@ public class PlayerMovement : MonoBehaviour
     void PlayFootstep()
     {
         if (footstepSounds == null || footstepSounds.Length == 0)
+            return;
+
+        // Skip if the previous footstep clip hasn't finished yet, so sounds don't stack/overlap
+        if (audioSource.isPlaying)
             return;
 
         AudioClip clip = footstepSounds[Random.Range(0, footstepSounds.Length)];

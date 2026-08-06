@@ -3,66 +3,64 @@ using UnityEngine;
 // =====================================================================
 // MinerFlashlight.cs
 // -----------------------------------------------------------------
-// Bu script konchining peshonasidagi fonarni boshqaradi.
-// Fonar - bu Unity'ning "Spot Light" (yo'naltirilgan yorug'lik) komponenti.
-// Fonar Camera (yoki bosh) ostiga joylashtiriladi, shunda u qayerga
-// qaraса o'sha tomonga yoritadi.
+// Controls the miner's headlamp/flashlight.
+// The flashlight is a Unity "Spot Light" component, positioned under
+// the Camera (or head), so it lights up whatever direction is faced.
 //
-// FUNKSIYALARI:
-//  1) F tugmasi bilan fonarni yoqish/o'chirish (toggle)
-//  2) Fonar quvvati (battery) vaqt o'tishi bilan kamayadi (ixtiyoriy)
-//  3) Fonar yorug'ligi silliq (flicker) effektsiz, barqaror yonadi
-//  4) Boshqa scriptlar (generator, keycard skaneri) fonar yoniq/
-//     o'chiqligini bilishi uchun ochiq (public) o'zgaruvchi bor
+// FEATURES:
+//  1) Toggle the flashlight on/off with the F key
+//  2) Battery drains over time (optional)
+//  3) Steady light, no flicker effect
+//  4) Exposes a public property so other scripts (generator, keycard
+//     scanner) can check whether the flashlight is on or off
 // =====================================================================
 
-[RequireComponent(typeof(Light))] // Bu script albatta Light komponenti bilan birga bo'lishi kerak
+[RequireComponent(typeof(Light))] // This script requires a Light component
 public class MinerFlashlight : MonoBehaviour
 {
-    [Header("Asosiy sozlamalar")]
-    [Tooltip("Fonarni yoqish/o'chirish uchun tugma")]
+    [Header("Main Settings")]
+    [Tooltip("Key used to toggle the flashlight")]
     public KeyCode toggleKey = KeyCode.F;
 
-    [Tooltip("O'yin boshlanganda fonar yonikmi yoki yo'qmi")]
+    [Tooltip("Whether the flashlight is on when the game starts")]
     public bool startsOn = true;
 
-    [Header("Yorug'lik sozlamalari (Spot Light)")]
-    [Tooltip("Fonarning yorug'lik radiusi (masofasi)")]
+    [Header("Light Settings (Spot Light)")]
+    [Tooltip("Range of the flashlight beam")]
     public float lightRange = 12f;
 
-    [Tooltip("Fonar konusining kengligi (gradus)")]
+    [Tooltip("Width of the flashlight cone (degrees)")]
     [Range(1f, 179f)]
     public float spotAngle = 45f;
 
-    [Tooltip("Yorug'lik kuchi (yorqinligi)")]
+    [Tooltip("Light intensity (brightness)")]
     public float lightIntensity = 3f;
 
-    [Header("Batareya (ixtiyoriy) - agar kerak bo'lmasa useBattery = false qiling")]
+    [Header("Battery (optional) - set useBattery = false if not needed")]
     public bool useBattery = false;
-    [Tooltip("Batareyaning to'liq quvvati (sekundlarda)")]
+    [Tooltip("Full battery capacity (in seconds)")]
     public float maxBattery = 120f;
     private float currentBattery;
 
-    [Header("Ovoz effektlari (ixtiyoriy)")]
-    public AudioSource audioSource;      // Fonar tugmasi bosilganda ovoz chiqarish uchun
-    public AudioClip toggleSound;        // Klik ovozi
+    [Header("Sound Effects (optional)")]
+    public AudioSource audioSource;      // Plays a sound when the toggle key is pressed
+    public AudioClip toggleSound;        // Click sound
 
-    // ----- Ichki o'zgaruvchilar -----
-    private Light flashlightLight;   // Light komponentiga havola
-    public bool IsOn { get; private set; } // Boshqa scriptlar fonar holatini shu yerdan bilib oladi
+    // ----- Internal variables -----
+    private Light flashlightLight;   // Reference to the Light component
+    public bool IsOn { get; private set; } // Other scripts read the flashlight state from here
 
     void Awake()
     {
-        // Light komponentini avtomatik topib olamiz
         flashlightLight = GetComponent<Light>();
 
-        // Light turini albatta "Spot" qilib qo'yamiz (fonarga mos)
+        // Ensure the light type is set to "Spot"
         flashlightLight.type = LightType.Spot;
         flashlightLight.range = lightRange;
         flashlightLight.spotAngle = spotAngle;
         flashlightLight.intensity = lightIntensity;
 
-        // Soya (shadow) yoqilgan bo'lsa, shaxta ancha real ko'rinadi
+        // Soft shadows make the mine feel more realistic
         flashlightLight.shadows = LightShadows.Soft;
 
         currentBattery = maxBattery;
@@ -70,20 +68,17 @@ public class MinerFlashlight : MonoBehaviour
 
     void Start()
     {
-        // O'yin boshida fonar holatini sozlaymiz
         IsOn = startsOn;
         flashlightLight.enabled = IsOn;
     }
 
     void Update()
     {
-        // 1) Tugma bosilganini tekshiramiz
         if (Input.GetKeyDown(toggleKey))
         {
             ToggleFlashlight();
         }
 
-        // 2) Agar batareya tizimi yoqilgan bo'lsa - quvvatni kamaytiramiz
         if (useBattery && IsOn)
         {
             currentBattery -= Time.deltaTime;
@@ -91,44 +86,42 @@ public class MinerFlashlight : MonoBehaviour
             if (currentBattery <= 0f)
             {
                 currentBattery = 0f;
-                SetFlashlight(false); // Batareya tugasa fonar avtomatik o'chadi
+                SetFlashlight(false); // Turn off automatically when the battery runs out
             }
         }
     }
 
-    // Fonarni yoqish/o'chirish (toggle) funksiyasi
     private void ToggleFlashlight()
     {
-        // Agar batareya tugagan bo'lsa, yoqishga urinish befoyda
+        // No point trying to turn it on if the battery is empty
         if (useBattery && currentBattery <= 0f && !IsOn)
             return;
 
         SetFlashlight(!IsOn);
     }
 
-    // Fonar holatini aniq belgilash uchun (masalan generator uni majburiy o'chirib qo'yishi mumkin)
+    // Explicitly sets the flashlight state (e.g. the generator can force it off)
     public void SetFlashlight(bool state)
     {
         IsOn = state;
         flashlightLight.enabled = IsOn;
 
-        // Ovoz chiqarish (agar sozlangan bo'lsa)
         if (audioSource != null && toggleSound != null)
         {
             audioSource.PlayOneShot(toggleSound);
         }
     }
 
-    // Batareyani to'ldirish uchun (masalan generator yonida batareya topilsa chaqiriladi)
+    // Recharges the battery (e.g. called when a battery pickup is found near the generator)
     public void RechargeBattery(float amount)
     {
         currentBattery = Mathf.Clamp(currentBattery + amount, 0f, maxBattery);
     }
 
-    // Batareya foizini boshqa scriptlarda (masalan UI'da) ko'rsatish uchun
+    // Exposes the battery percentage for other scripts (e.g. UI)
     public float GetBatteryPercent()
     {
-        if (!useBattery) return 1f; // Agar batareya tizimi o'chiq bo'lsa, doim 100% deb hisoblaymiz
+        if (!useBattery) return 1f; // Always report 100% if the battery system is disabled
         return currentBattery / maxBattery;
     }
 }

@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PosterCodeGenerate : MonoBehaviour
 {
-    [Header("Bog'liq skriptlar")]
+    [Header("Linked Scripts")]
     public InputCodeManage inputCodeManager;
 
     private void Start()
     {
-        // O'yin boshlanishi bilan darhol yangi kod yaratamiz
+        // Generate a new code as soon as the game starts
         GenerateNewCode();
     }
 
@@ -15,17 +15,14 @@ public class PosterCodeGenerate : MonoBehaviour
     {
         if (inputCodeManager == null)
         {
-            Debug.LogError("[PosterCodeGenerator] InputCodeManager biriktirilmagan!");
             return;
         }
 
-        // Tasodifiy kod yaratish
+        // Generate a random code
         string newCode = GenerateRandomCode(inputCodeManager.maxDigits);
 
-        // InputCodeManager'ga yangi kodni yuboramiz
+        // Send the new code to InputCodeManager
         inputCodeManager.SetNewCode(newCode);
-
-        Debug.Log("<color=cyan>[PosterCodeGenerator]</color> O'yin boshida yangi kod yaratildi va tarqatildi: " + newCode);
     }
 
     private string GenerateRandomCode(int length)
